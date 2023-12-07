@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import ThreeCanvas from "../Components/Threejs";
 import HeroLink from "../Components/HeroLink";
 import { useEffect } from "react";
 import AnimatedText from "@/Components/AnimatedText";

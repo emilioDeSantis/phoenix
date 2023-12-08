@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import HeroLink from "../Components/HeroLink";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AnimatedText from "@/Components/AnimatedText";
 import Link from "next/link";
 import AnimatedComponent from "@/Components/AnimatedComponent";
@@ -11,6 +11,8 @@ import ScrambleText from "@/Components/ScrambleText";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import AnimatedWord from "@/Components/AnimatedWord";
+import LoadingScreen from "@/Components/LoadingScreen";
+import { log } from "console";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +21,17 @@ const scrollSpeed = 1;
 export default function Home() {
     // useSmoothScroll();
 
+    const [isLoading, setLoading] = useState(true);
+
     useEffect(() => {
         const videoElement = document.querySelector("video");
+        console.log(videoElement);
+
+        videoElement?.play();
+
+        videoElement?.addEventListener("playing", () => {
+            setLoading(false)
+        });
 
         videoElement?.addEventListener("ended", function () {
             // Change to the looping video
@@ -46,6 +57,7 @@ export default function Home() {
                 overflowY: "hidden",
             }}
         >
+            {isLoading && <LoadingScreen />}
             {/* <div
                 style={{
                     perspective: "1px",
@@ -55,7 +67,7 @@ export default function Home() {
                 }}
             > */}
             <video
-                autoPlay
+                // autoPlay
                 // loop
                 muted
                 style={{
@@ -93,7 +105,7 @@ export default function Home() {
                     yOffset={60}
                     stagger={0.03}
                     duration={0.4}
-                    delay={2}
+                    delay={!isLoading ? 2 : 100}
                     triggerMargin="0%"
                     textStyle={{
                         textTransform: "uppercase",
@@ -108,7 +120,7 @@ export default function Home() {
                     text="Phoenix"
                 />
                 <AnimatedText
-                    delay={3.5}
+                    delay={!isLoading ? 3.5 : 100}
                     yOffset={20}
                     stagger={0.01}
                     duration={0.5}
@@ -154,7 +166,7 @@ export default function Home() {
                     <AnimatedComponent
                         yOffset={60}
                         duration={0.4}
-                        delay={7.4}
+                        delay={!isLoading ? 7.4 : 100}
                         triggerMargin="0%"
                         style={{
                             display: "flex",
@@ -226,7 +238,7 @@ export default function Home() {
                 <AnimatedComponent
                     yOffset={60}
                     duration={0.4}
-                    delay={3.9}
+                    delay={!isLoading ? 3.9 : 100}
                     triggerMargin="0%"
                     style={{
                         textTransform: "uppercase",
@@ -269,7 +281,7 @@ export default function Home() {
                 <AnimatedComponent
                     yOffset={60}
                     duration={0.4}
-                    delay={4.1}
+                    delay={!isLoading ? 4.1 : 100}
                     triggerMargin="0%"
                     style={{
                         textTransform: "uppercase",
@@ -351,6 +363,7 @@ export default function Home() {
                         stagger={0.005}
                         duration={0.4}
                         yOffset={50}
+                        delay={!isLoading ? 0 : 100}
                         textStyle={{
                             fontSize: "1rem",
                             fontFamily: "Monument-Extended",
@@ -368,6 +381,7 @@ export default function Home() {
                             stagger={0.0025}
                             duration={0.4}
                             yOffset={50}
+                            delay={!isLoading ? 0 : 100}
                             textStyle={{
                                 fontSize: "2vw",
                                 width: "50vw",
@@ -385,6 +399,7 @@ export default function Home() {
                             triggerMargin="40%"
                             yOffset={100}
                             duration={0.5}
+                            delay={!isLoading ? 0 : 100}
                         >
                             <div
                                 style={{
@@ -419,7 +434,8 @@ export default function Home() {
                             fontFamily: "Monument-Extended",
                         }}
                     >
-                        <AnimatedComponent>
+                        <AnimatedComponent 
+                        delay={!isLoading ? 0 : 100}>
                             <Link
                                 href={"/partner"}
                                 style={{
@@ -452,7 +468,8 @@ export default function Home() {
                                 </div>
                             </Link>
                         </AnimatedComponent>
-                        <AnimatedComponent>
+                        <AnimatedComponent 
+                        delay={!isLoading ? 0 : 100}>
                             <Link
                                 href={"/apply"}
                                 style={{

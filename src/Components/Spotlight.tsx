@@ -58,7 +58,7 @@ const Spotlight: React.FC<SpotlightProps> = ({ title, text, src, reverse }) => {
                     fill
                     src={src}
                     alt={"image"}
-                    sizes="100vw"
+                    sizes="40vw"
                     priority
                     style={{
                         objectFit: "cover",

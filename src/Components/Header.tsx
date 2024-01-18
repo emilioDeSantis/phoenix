@@ -43,7 +43,8 @@ const Header: React.FC = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "stretch",
-                backgroundColor: pathname == "/" ? "#0000" : "#000",
+                // backgroundColor: pathname == "/" ? "#0000" : "#000",
+                backgroundColor: "#0000",
                 color: "white",
                 zIndex: 1000,
                 letterSpacing: "0.1em",
@@ -64,21 +65,23 @@ const Header: React.FC = () => {
                 style={{
                     color: "#EEFDFF",
                     gap: "2.4rem",
-                    fontWeight: 300,
-                    letterSpacing: "0.05em",
+                    fontWeight: 200,
+                    letterSpacing: "0.04em",
                     display: "flex",
                     height: '3rem',
+                    // fontSize: '1.2rem',
                 }}
             >
                 {links.map((link, index) => (
                     <Link
                         key={index}
                         ref={(el) => (linkRefs.current[index] = el)}
-                        className={link.href == pathname ? "" : "nav-link"}
+                        className={link.href == pathname ? "nav-link" :""}
                         style={{
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
+                            width: '3rem',
                         }}
                         href={link.href}
                     >

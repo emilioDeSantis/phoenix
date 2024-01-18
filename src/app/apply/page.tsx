@@ -1,51 +1,372 @@
+"use client";
 import PageSubtitle from "@/Components/PageSubtitle";
 import PageContainer from "../../Components/PageContainer";
 import PageTitle from "../../Components/PageTitle";
 import Button from "@/Components/Button";
 import Spotlight from "@/Components/Spotlight";
+import AnimatedText from "@/Components/AnimatedText";
+import AnimatedComponent from "@/Components/AnimatedComponent";
+import { useState } from "react";
+import Form from "@/Components/Form";
+import Image from "next/image";
+import RowDivider, { dividerWidth } from "@/Components/RowDivider";
+import Block from "@/Components/Block";
+import Index from "@/Components/Index";
+import ColumnDivider from "@/Components/ColumnDivider";
+import Section from "@/Components/Section";
+import SectionImage from "@/Components/SectionImage";
+import Link from "next/link";
 
 const Apply = () => {
     return (
-        <PageContainer>
-            <PageTitle title="/  Join our team" />
-            {/* <PageSubtitle title="Flexible Solutions for Construction Staffing" /> */}
-            {/* <p
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+            }}
+        >
+            <div
                 style={{
-                    fontSize: "1rem",
-                    color: "white",
-                    marginTop: "5rem",
-                    fontWeight: 300,
-                    marginInline: "5rem",
-                    width: "48rem",
-                    opacity: 0.7,
+                    height: "100vh",
+                    width: "100vw",
+                    position: "absolute",
                 }}
             >
-                {`Phoenix Construction Resources is your go-to source for flexible, skilled labor on construction sites across the New England area. When your project requires additional manpower, we supply the dependable, unskilled laborers you need for tasks like site clean-up, material transport, demolition, and excavation. Forget the hassle of hiring and payroll; you tell us how many workers you need and for how long, and we'll handle the rest. For larger teams, a skilled foreman will be provided to ensure efficient, streamlined operations on-site.`}
-            </p>
+                <div
+                    style={{
+                        height: "100vh",
+                        width: "100vw",
+                        position: "relative",
+                    }}
+                >
+                    <Image
+                        fill
+                        src={"/apply.png"}
+                        alt={"image"}
+                        sizes="100vw"
+                        priority
+                        style={{
+                            objectFit: "cover",
+                        }}
+                    />
+                </div>
+            </div>
+            <div
+                style={{
+                    height: "100vh",
+                    width: "100vw",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    gap: "2rem",
+                }}
+            >
+                <PageTitle title="Join the Phoenix Team" />
+                <PageSubtitle title="Build Your Career with Us" />
+                <AnimatedText
+                    yOffset={20}
+                    stagger={0.002}
+                    delay={0.2}
+                    textStyle={{
+                        fontSize: "1.1rem",
+                        color: "white",
+                        marginTop: "5rem",
+                        fontWeight: 300,
+                        marginInline: "10vw",
+                        width: "32rem",
+                        opacity: 0.7,
+                    }}
+                    text={`Join a team that values hard work, safety, and skill. At Phoenix, we offer a dynamic work environment with opportunities for growth in New England's construction industry.`}
+                />
+                <AnimatedComponent
+                    delay={0.4}
+                    triggerMargin="0px"
+                    style={{
+                        display: "flex",
+                        paddingInline: "10vw",
+                        marginTop: "1rem",
+                    }}
+                >
+                    <Link
+                        href={"#form"}
+                        scroll={true}
+
+
+                        style={{
+                            backgroundColor: "#08226533",
+                            color: "white",
+                            border: "0.5px solid #2753C5",
+                            padding: "0.8rem 2rem",
+                            fontSize: "0.9rem",
+                            borderRadius: "5px",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontFamily: "Monument-Extended",
+                        }}
+                    >
+                        Apply Today<span style={{ marginLeft: "1rem" }}>↘</span>
+                    </Link>
+                </AnimatedComponent>
+            </div>
+            <RowDivider />
             <div
                 style={{
                     display: "flex",
-                    paddingInline: "5rem",
-                    marginTop: "3rem",
+                    flexDirection: "row",
                 }}
             >
-                <Button href={"/khjgvjhgv"}>Apply Today</Button>
-            </div> */}
-            {/* <Spotlight title="/ READY WORKFORCE" src="/blueprint1.png">
-                {`Access a pool of laborers ready to deploy at a moment's notice,
-                tailored to your project's size and duration.`}
-            </Spotlight>
-            <Spotlight title="/ Hassle-Free Management" src="/blueprint2.png" reverse>
-                {`We manage all aspects of employment, from onboarding to payroll, allowing you to focus on your project.`}
-            </Spotlight>
-            <Spotlight title="/ Leadership Included" src="/blueprint5.png">
-                {`For larger labor needs, our foremen bring leadership and coordination to the workforce, ensuring productivity and quality.`}
-            </Spotlight>
-            <Spotlight title="/ Operational Excellence" src="/bp4.png" reverse>
-                {`With our workers, expect a seamless extension to your team, backed by Phoenix's commitment to operational efficiency.`}
-            </Spotlight> */}
-        </PageContainer>
+                <SectionImage src={"/blueprint2.png"} />
+                <ColumnDivider />
+                <Index index={1} />
+                <ColumnDivider />
+                <Section
+                    title={"Steady Employment"}
+                    bullets={[
+                        `Start work immediately`,
+                        `Consistent project availability`,
+                        `Reliable work schedules`,
+                    ]}
+                />
+            </div>
+            <RowDivider />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}
+            >
+                <Index index={2} />
+                <ColumnDivider />
+                <Section
+                    title={"Optional Overtime"}
+                    bullets={[`Additional income potential`]}
+                />
+                <ColumnDivider />
+                <SectionImage src={"/worker6.png"} />
+            </div>
+            <RowDivider />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}
+            >
+                <SectionImage src={"/bp6.png"} />
+                <ColumnDivider />
+                <Index index={3} />
+                <ColumnDivider />
+                <Section
+                    title={"Dynamic Work Environment"}
+                    bullets={[
+                        `Work with a skilled, diverse team`,
+                        `Engage in varied construction tasks`,
+                        `Experience a stimulating job setting`,
+                    ]}
+                />
+            </div>
+            <RowDivider />
+
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "space-between",
+                    flexDirection: "row",
+                    width: "100%",
+                    paddingInline: "5vw",
+                    marginTop: "5rem",
+                    marginBottom: "5rem",
+                }}
+            >
+                <div style={{ width: "5rem" }}></div>
+                <div style={{ maxWidth: "35vw", marginBottom: "2vw" }}>
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            fontSize: "1rem",
+                            color: "white",
+                            textTransform: "uppercase",
+                            fontWeight: 300,
+                            opacity: 0.8,
+                        }}
+                        text={`OSHA-Certified Safety Training`}
+                    />
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            color: "white",
+                            fontFamily: "Monument-Extended",
+                            fontSize: "1.6vw",
+                            marginTop: "1.2rem",
+                        }}
+                        text={`Phoenix arranges and covers the OSHA safety training course, certifying you for construction work.`}
+                    />
+                </div>
+
+                <div style={{ flexGrow: 1 }}></div>
+                <AnimatedComponent
+                    style={{
+                        height: "40vw",
+                        width: "40vw",
+                        position: "relative",
+                    }}
+                >
+                    <Image
+                        fill
+                        src={"/sparks2.png"}
+                        alt={"image"}
+                        sizes="40vw"
+                        priority
+                        style={{
+                            objectFit: "cover",
+                        }}
+                    />
+                </AnimatedComponent>
+            </div>
+            <RowDivider />
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}
+            >
+                <SectionImage src={"/worker7.png"} />
+                <ColumnDivider />
+                <Section
+                    title={"Starting Salary"}
+                    bullets={[
+                        `Competitive pay starting in the mid-$20s per hour`,
+                        `Opportunities for overtime and raises`,
+                        `Additional increase for those advancing to foreman roles`,
+                    ]}
+                />
+                <ColumnDivider />
+                <Section
+                    title={"Experience Needed"}
+                    bullets={[
+                        `No specific prior experience required`,
+                        `Must be capable of performing manual labor`,
+                        `Intelligence and a willingness to learn are key`,
+                    ]}
+                />
+            </div>
+            <RowDivider />
+
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    flexDirection: "row",
+                    width: "100%",
+                    paddingInline: "5vw",
+                    marginTop: "12rem",
+                    marginBottom: "5rem",
+                }}
+            >
+                <div style={{ width: "5rem" }}></div>
+                <div style={{ maxWidth: "50vw", marginBottom: "2vw" }}>
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            fontSize: "3.2rem",
+                            color: "white",
+                            textTransform: "uppercase",
+                            fontFamily: "Monument-Extended",
+                        }}
+                        text={`Next Steps to Apply at Phoenix`}
+                    />
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "flex-end",
+                            flexDirection: "column",
+                        }}
+                    >
+                        <NumberedSection
+                            index={1}
+                            title="Schedule a Meeting"
+                            text="Reach out to set up your initial meeting with us."
+                        />
+                        <NumberedSection
+                            index={2}
+                            title="Attend an Interview"
+                            text="Come in for a face-to-face interview to discuss your skills and fit."
+                        />
+                        <NumberedSection
+                            index={3}
+                            title="Quick Site Placement"
+                            text="Typically, Phoenix gets you working on a site within a week of your interview."
+                        />
+                    </div>
+                </div>
+
+                <div style={{ flexGrow: 1 }}></div>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        gap: "12rem",
+                        marginLeft: "-20rem",
+                        zIndex: -1,
+                        marginTop: "10rem",
+                    }}
+                >
+                    <AnimatedComponent
+                        style={{
+                            height: "40vw",
+                            width: "40vw",
+                            position: "relative",
+                        }}
+                    >
+                        <Image
+                            fill
+                            src={"/bp7.png"}
+                            alt={"image"}
+                            sizes="40vw"
+                            priority
+                            style={{
+                                objectFit: "cover",
+                            }}
+                        />
+                    </AnimatedComponent>
+                </div>
+            </div>
+            <div id='form'/>
+            <Form apply />
+        </div>
     );
 };
 
 export default Apply;
+
+// add in a component called NumberedSection the has a number on the left and a title and text on the right
+//add in type definitions
+
+type NumberedSectionProps = {
+    index: number;
+    title: string;
+    text: string;
+};
+
+const NumberedSection: React.FC<NumberedSectionProps> = ({
+    index,
+    title,
+    text,
+}) => {
+    return (
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                marginTop: "-12vw",
+            }}
+        >
+            <Index index={index} />
+            <Section title={title} bullets={[text]} />
+        </div>
+    );
+};

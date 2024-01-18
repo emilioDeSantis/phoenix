@@ -17,7 +17,7 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({
     yOffset = 50,
     duration = 0.8,
     style,
-    triggerMargin = "25%",
+    triggerMargin = "200px",
 }) => {
     const componentRef = useRef<HTMLDivElement>(null);
 

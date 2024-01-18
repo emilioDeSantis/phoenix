@@ -11,11 +11,11 @@ const PageTitle: React.FC<PageTitleProps> = ({ title }) => {
         <AnimatedText 
         yOffset={20}
         textStyle={{
-            fontSize: '1.2rem',
+            fontSize: '1.1rem',
             color: 'white',
-            marginTop: '8rem',
-            textTransform: 'uppercase',
-            fontWeight: 300,
+            marginInline: '5vw',
+            // textTransform: 'uppercase',
+            fontWeight: 200,
         }} text={title}/>
     );
 };

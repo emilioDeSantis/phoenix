@@ -390,10 +390,7 @@ export default function Home() {
                                 marginTop: "2rem",
                                 opacity: 0.8,
                             }}
-                            text="Elevating New England's construction landscape with flexible, expert labor solutions. Our teams,
-                            specialized in demolition, site preparation, and material handling, ensure your project's success
-                            with streamlined management and unparalleled
-                            efficiency."
+                            text="Phoenix offers adaptable team sizes and quick deployment. Our workers specialize in site preparation, clean-up, and material handling, ensuring smooth project management and reliable results."
                         ></AnimatedText>
                         <AnimatedComponent
                             triggerMargin="40%"

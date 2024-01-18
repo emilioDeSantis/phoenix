@@ -19,7 +19,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   stagger = 0.005,
   duration = 0.8,
   textStyle,
-  triggerMargin = '25%',
+  triggerMargin = '200px',
 }) => {
   const textRef = useRef<HTMLDivElement>(null);
   const observer = useRef<IntersectionObserver>();

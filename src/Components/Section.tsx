@@ -40,9 +40,9 @@ const Section: React.FC<SectionProps> = ({ title, bullets }) => {
                     </h2>
                 </AnimatedComponent>
                 {bullets.map((bullet, index) => (
-                    <AnimatedComponent>
+                    <AnimatedComponent 
+                    key={index}>
                         <div
-                            key={index}
                             style={{
                                 fontSize: "1rem",
                                 fontWeight: 200,

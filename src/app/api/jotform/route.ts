@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error('Error in API Route:', error);
-    return new Response(JSON.stringify({ message: 'Error submitting form', error: error.message }), {
+    return new Response(JSON.stringify({ message: 'Error submitting form', }), {
       status: 500,
       headers: {
         'Content-Type': 'application/json',

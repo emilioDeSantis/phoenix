@@ -28,7 +28,7 @@ const Section: React.FC<SectionProps> = ({ title, bullets }) => {
                 <AnimatedComponent>
                     <h2
                         style={{
-                            fontSize: "2rem",
+                            fontSize: "Min(6vw, 2rem)",
                             fontFamily: "Monument-Extended",
                             textTransform: "uppercase",
                             lineHeight: "1.2",

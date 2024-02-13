@@ -11,7 +11,7 @@ type SectionImageProps = {
 
 const SectionImage: React.FC<SectionImageProps> = ({ src }) => {
     return (
-        <AnimatedComponent>
+        // <AnimatedComponent>
             <Block>
                 <div
                     style={{
@@ -32,7 +32,7 @@ const SectionImage: React.FC<SectionImageProps> = ({ src }) => {
                     />
                 </div>
             </Block>
-        </AnimatedComponent>
+        // </AnimatedComponent>
     );
 };
 

@@ -8,32 +8,40 @@ import AnimatedComponent from "./AnimatedComponent";
 
 type IndexProps = {
     index: number;
+    mobile?: boolean;
 };
 
-const Index: React.FC<IndexProps> = ({ index }) => {
+const Index: React.FC<IndexProps> = ({ index, mobile }) => {
     return (
-        <Block>
-            <div
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "flex-end",
-                    alignItems: "flex-end",
-                    fontSize: "15rem",
-                    fontWeight: 900,
-                    padding: "2rem",
-                    paddingInline: "2rem",
-                    lineHeight: 0.8,
-                    opacity: 0.18,
-                }}
-            >
-                <AnimatedComponent>
-                    {index < 10 ? `0${index}` : index}
-                </AnimatedComponent>
-            </div>
-        </Block>
+        <div 
+        className={ mobile ? '':"desktop"}
+        style={{
+            width: '100%',
+            height: '100%',
+        }}>
+            <Block>
+                <div
+                    style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "flex-end",
+                        alignItems: "flex-end",
+                        fontSize: "15rem",
+                        fontWeight: 900,
+                        padding: "2rem",
+                        paddingInline: "2rem",
+                        lineHeight: 0.8,
+                        opacity: 0.18,
+                    }}
+                >
+                    <AnimatedComponent>
+                        {index < 10 ? `0${index}` : index}
+                    </AnimatedComponent>
+                </div>
+            </Block>
+        </div>
     );
 };
 

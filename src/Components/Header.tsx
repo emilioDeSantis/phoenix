@@ -3,6 +3,7 @@ import Link from "next/link";
 import { link } from "fs";
 import { usePathname } from "next/navigation";
 import { use, useEffect, useRef, useState } from "react";
+import Logo from "./Logo";
 
 const Header: React.FC = () => {
     const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -59,7 +60,7 @@ const Header: React.FC = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                PHOENIX
+                <Logo />
             </Link>
             <nav
                 style={{

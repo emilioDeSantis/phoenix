@@ -1,16 +1,29 @@
 // components/AnimatedComponent.tsx
-import React, { useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { dividerStroke, dividerWidth } from "./RowDivider";
 
+type ColumnDividerProps = {
+    mobile?: boolean;
+};
 
-const ColumnDivider: React.FC = ({}) => {
+const ColumnDivider: React.FC<ColumnDividerProps> = ({ mobile }) => {
     return (
-        <div
-            style={{
-                width: dividerWidth,
-                borderInline: dividerStroke,
-            }}
-        />
+        <Fragment>
+            {mobile &&<div
+                className="mobile"
+                style={{
+                    minHeight: dividerWidth,
+                    borderBlock: dividerStroke,
+                }}
+            />}
+            <div
+                className="desktop"
+                style={{
+                    minWidth: dividerWidth,
+                    borderInline: dividerStroke,
+                }}
+            />
+        </Fragment>
     );
 };
 

@@ -62,14 +62,14 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                 width: "100%",
                 justifyContent: "center",
                 display: "flex",
-                marginBottom: "10rem",
                 marginTop: "5rem",
+                paddingInline: "5vw",
             }}
         >
             <form
                 onSubmit={handleSubmit}
                 style={{
-                    width: "36rem",
+                    width: "Min(36rem, 100%)",
                     display: "flex",
                     flexDirection: "column",
                     gap: "1rem",
@@ -79,7 +79,7 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                     style={{
                         width: "100%",
                         fontFamily: "Monument-Extended",
-                        fontSize: "2.6rem",
+                        fontSize: "Min(2.6rem, 8vw)",
                         color: "white",
                         lineHeight: "1.2",
                         textTransform: "uppercase",
@@ -154,6 +154,31 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                     />
                 </div>
                 <SubmitButton isLoading={isLoading} onSubmit={handleSubmit} />
+
+
+            <h2
+                    style={{
+                        width: "100%",
+                        fontFamily: "Monument-Extended",
+                        fontSize: "Min(1.6rem, 5vw)",
+                        color: "white",
+                        textTransform: "uppercase",
+                        marginTop: "8rem",
+                    }}
+                >
+                    or give us a call
+                </h2>
+                <p
+                    style={{
+                        fontSize: "Min(5rem, 12vw)",
+                        color: "fff",
+                        lineHeight: 1,
+                        width: "100%",
+                        fontWeight: 100,
+                    }}
+                >
+                    781-641-2858
+                </p>
             </form>
         </div>
     );

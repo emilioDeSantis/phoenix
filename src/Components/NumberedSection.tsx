@@ -60,7 +60,7 @@ const NumberedSection: React.FC<NumberedSectionProps> = ({
                             fontFamily: "Monument-Extended",
                             textTransform: "uppercase",
                             lineHeight: "1.2",
-                            width: "24rem",
+                            width: "Min(24rem, 100%)",
                             marginBottom: "0rem",
                         }}
                     >

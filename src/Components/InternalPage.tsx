@@ -16,6 +16,7 @@ import SectionImage from "@/Components/SectionImage";
 import Link from "next/link";
 import NumberedSection from "@/Components/NumberedSection";
 import PageTitle from "./PageTitle";
+import Footer from "./Footer";
 
 type InternalPageProps = {
     hero: string;
@@ -88,8 +89,9 @@ const InternalPage: React.FC<InternalPageProps> = ({
                         color: "white",
                         marginTop: "5rem",
                         fontWeight: 300,
-                        marginInline: "10vw",
-                        width: "32rem",
+                        paddingLeft: "10vw",
+                        paddingRight: "5vw",
+                        width: "Min(48rem,100%)",
                         opacity: 0.7,
                     }}
                     text={text}
@@ -127,6 +129,7 @@ const InternalPage: React.FC<InternalPageProps> = ({
             </div>
 
             {children}
+            <Footer/>
         </div>
     );
 };

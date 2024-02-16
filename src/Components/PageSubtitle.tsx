@@ -9,7 +9,7 @@ interface PageSubtitleProps {
 const PageSubtitle: React.FC<PageSubtitleProps> = ({ title }) => {
     return (
         <AnimatedText textStyle={{
-            fontSize: '3.4vw',
+            fontSize: 'Min(3rem, 5vw)',
             color: 'white',
             // marginTop: '2rem',
             textTransform: 'uppercase',

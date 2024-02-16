@@ -16,8 +16,200 @@ import ColumnDivider from "@/Components/ColumnDivider";
 import Section from "@/Components/Section";
 import SectionImage from "@/Components/SectionImage";
 import Link from "next/link";
+import TextSection from "@/Components/TextSection";
+import InternalPage from "@/Components/InternalPage";
+import NumberedSection from "@/Components/NumberedSection";
 
 const Apply = () => {
+
+
+
+    return (
+        <InternalPage
+            hero={"/apply2.png"}
+            title="Join the Phoenix Team"
+            subtitle="Build Your Career with Us"
+            text={`Join a team that values hard work, safety, and skill. At Phoenix, we offer a dynamic work environment with opportunities for growth in New England's construction industry.`}
+            buttonText="Apply Today"
+        >
+            <RowDivider />
+            <div className="section-container">
+                <SectionImage src={"/blueprint2.png"} />
+                <ColumnDivider mobile />
+                <Index index={1} />
+                <ColumnDivider />
+                <Section
+                    title={"Steady Employment"}
+                    bullets={[
+                        `Start work immediately`,
+                        `Consistent project availability`,
+                        `Reliable work schedules`,]}
+                />
+            </div>
+            <RowDivider />
+            <div className="section-container"
+            >
+                <Index index={2} />
+                <ColumnDivider />
+                <Section
+                    title={"Optional Overtime"}
+                    bullets={[`Additional income potential`]}
+                />
+                <ColumnDivider />
+                <SectionImage src={"/worker6.png"} />
+            </div>
+            <RowDivider />
+            <div className="section-container">
+            <SectionImage src={"/bp6.png"} />
+                <ColumnDivider />
+                <Index index={3} />
+                <ColumnDivider />
+                <Section
+                    title={"Dynamic Work Environment"}
+                    bullets={[
+                        `Work with a skilled, diverse team`,
+                        `Engage in varied construction tasks`,
+                        `Experience a stimulating job setting`,
+                    ]}
+                />
+            </div>
+            <RowDivider />
+            <div
+                className="section-container"
+                style={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "space-between",
+                    // flexDirection: "row",
+                    width: "100%",
+                    paddingInline: "5vw",
+                    marginTop: "5rem",
+                    marginBottom: "5rem",
+                }}
+            >
+                <div style={{ width: "5rem" }}></div>
+                <div className="safety">
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            fontSize: "1rem",
+                            color: "white",
+                            textTransform: "uppercase",
+                            fontWeight: 300,
+                            opacity: 0.8,
+                        }}
+                        text={`OSHA-Certified Safety Training`}
+                    />
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            color: "white",
+                            fontFamily: "Monument-Extended",
+                            fontSize: "Min(1.6rem, 5vw)",
+                            marginTop: "1.2rem",
+                        }}
+                        text={`Phoenix arranges and covers the OSHA safety training course, certifying you for construction work.`}
+                    />
+                </div>
+
+                <div style={{ flexGrow: 1, height: "2rem" }}></div>
+                <div className="safety-image">
+                    <AnimatedComponent
+                        style={{
+                            height: "100%",
+                            width: "1005",
+                            position: "relative",
+                        }}
+                    >
+                        <Image
+                            fill
+                            src={"/sparks2.png"}
+                            alt={"image"}
+                            sizes="40vw"
+                            priority
+                            style={{
+                                objectFit: "cover",
+                            }}
+                        />
+                    </AnimatedComponent>
+                </div>
+            </div>
+            <RowDivider />
+            <div className="section-container">
+            <SectionImage src={"/worker7.png"} />
+                <ColumnDivider />
+                <Section
+                    title={"Starting Salary"}
+                    bullets={[
+                        `Competitive pay starting in the mid-$20s per hour`,
+                        `Opportunities for overtime and raises`,
+                        `Additional increase for those advancing to foreman roles`,
+                    ]}
+                />
+                <ColumnDivider />
+                <Section
+                    title={"Experience Needed"}
+                    bullets={[
+                        `No specific prior experience required`,
+                        `Must be capable of performing manual labor`,
+                        `Intelligence and a willingness to learn are key`,
+                    ]}
+                />
+            </div>
+            <RowDivider />
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                    width: "100%",
+                    marginTop: "5rem",
+                    marginBottom: "5rem",
+                }}
+            >
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        justifyContent: "space-between",
+                        width: "Min(70rem,100%)",
+                        paddingInline: "5vw",
+                    }}
+                >
+                    <AnimatedText
+                        yOffset={20}
+                        textStyle={{
+                            fontSize: "Min(8vw, 3.2rem)",
+                            color: "white",
+                            textTransform: "uppercase",
+                            fontFamily: "Monument-Extended",
+                        }}
+                        text={`Next Steps to Apply at Phoenix`}
+                    />
+                    <NumberedSection
+                        index={1}
+                        title="Schedule a Meeting"
+                        text="Reach out to set up your initial meeting with us."
+                    />
+                    <NumberedSection
+                        index={2}
+                        title="Attend an Interview"
+                        text="Come in for a face-to-face interview to discuss your skills and fit."
+                    />
+                    <NumberedSection
+                        index={3}
+                        title="Quick Site Placement"
+                        text="Typically, Phoenix gets you working on a site within a week of your interview."
+                    />
+                </div>
+            </div>
+            <div id="form" />
+            <Form></Form>
+        </InternalPage>
+    );
+
+
     return (
         <div
             style={{
@@ -343,30 +535,3 @@ const Apply = () => {
 
 export default Apply;
 
-// add in a component called NumberedSection the has a number on the left and a title and text on the right
-//add in type definitions
-
-type NumberedSectionProps = {
-    index: number;
-    title: string;
-    text: string;
-};
-
-const NumberedSection: React.FC<NumberedSectionProps> = ({
-    index,
-    title,
-    text,
-}) => {
-    return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: "-12vw",
-            }}
-        >
-            <Index index={index} />
-            <Section title={title} bullets={[text]} />
-        </div>
-    );
-};

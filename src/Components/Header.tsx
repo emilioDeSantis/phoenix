@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { link } from "fs";
 import { usePathname } from "next/navigation";
-import { use, useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+import { use, useEffect, useRef, useState } from "react";
+import DropdownMenu from "./DropdownMenu";
+import useHideNavOnScroll from "@/app/hooks/useHideNavOnScroll";
 
 const Header: React.FC = () => {
     const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -11,87 +13,76 @@ const Header: React.FC = () => {
 
     const pathname = usePathname();
 
-    const [isSwitchingTabs, setIsSwitchingTabs] = useState(false);
-
-    useEffect(() => {
-        setIsSwitchingTabs(true);
-        // reset isSwitchingTabs to false after 300ms. Adjust the delay if needed.
-        setTimeout(() => setIsSwitchingTabs(false), 500);
-    }, [pathname]);
-
-    useEffect(() => {
-        const activeIndex = links.findIndex((link) => link.href === pathname);
-        const activeLink = linkRefs.current[activeIndex];
-
-        if (activeLink) {
-            const left = activeLink.offsetLeft;
-            setUnderlineLeft(left);
-        }
-    }, [pathname]);
+    const visable = useHideNavOnScroll();
 
     const links = [
-        { name: "Home", href: "/" },
-        { name: "Partner", href: "/partner" },
-        { name: "Apply", href: "/apply" },
+        { label: "Home", href: "/" },
+        { label: "Partner", href: "/partner" },
+        { label: "Apply", href: "/apply" },
         // { name: "Contact", href: "/contact" },
     ];
     return (
         <div
             style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
                 position: "fixed",
                 top: 0,
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "stretch",
-                // backgroundColor: pathname == "/" ? "#0000" : "#000",
-                backgroundColor: "#0000",
-                color: "white",
+                transform: `translateY(${visable ? 0 : -4}rem)`,
+                transition: "0.3s",
                 zIndex: 1000,
-                letterSpacing: "0.1em",
-                paddingLeft: "5vw",
-                paddingRight: "8vw",
-                // borderBottom: "0.3px solid #ffffff",
             }}
         >
-            <Link href="/" style={{
-                height: 'auto',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}>
-                <Logo />
-            </Link>
-            <nav
+            <div
                 style={{
-                    color: "#EEFDFF",
-                    gap: "2.4rem",
-                    fontWeight: 200,
-                    letterSpacing: "0.04em",
+                    width: "100%",
                     display: "flex",
-                    height: '3rem',
-                    // fontSize: '1.2rem',
+                    justifyContent: "space-between",
+                    alignItems: "stretch",
+                    color: "white",
+                    zIndex: 1000,
+                    letterSpacing: "0.1em",
+                    paddingInline: "5vw",
                 }}
             >
-                {links.map((link, index) => (
-                    <Link
-                        key={index}
-                        ref={(el) => (linkRefs.current[index] = el)}
-                        className={link.href == pathname ? "nav-link" :""}
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            width: '3rem',
-                        }}
-                        href={link.href}
-                    >
-                        <div>{link.name}</div>
-                    </Link>
-                ))}
-            </nav>
+                <Link href="/">
+                    <Logo />
+                </Link>
+                <nav
+                    className="desktop"
+                    style={{
+                        color: "#EEFDFF",
+                        gap: "2.4rem",
+                        fontWeight: 300,
+                        letterSpacing: "0.04em",
+                        height: "3rem",
+                        opacity: 1,
+                    }}
+                >
+                    {links.map((link, index) => (
+                        <Link
+                            key={index}
+                            ref={(el) => (linkRefs.current[index] = el)}
+                            className={link.href == pathname ? "" : "nav-link"}
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                            href={link.href}
+                        >
+                            <div>{link.label}</div>
+                        </Link>
+                    ))}
+                </nav>
+                <div className="mobile">
+                    <DropdownMenu navLinks={links} />
+                </div>
+            </div>
         </div>
     );
+
 };
 
 export default Header;

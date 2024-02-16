@@ -13,6 +13,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import AnimatedWord from "@/Components/AnimatedWord";
 import LoadingScreen from "@/Components/LoadingScreen";
 import { log } from "console";
+import Footer from "@/Components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,22 +25,57 @@ export default function Home() {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        const videoElement = document.querySelector("video");
-        console.log(videoElement);
+        const videoElement = document.querySelector("#initial-video") as HTMLVideoElement | null;
+        const loopVideoElement = document.querySelector("#loop-video") as HTMLVideoElement | null;
 
-        videoElement?.play();
+        console.log('vid',videoElement);
+        
+    
+        if (videoElement) {
+            // const onVideoCanPlayThrough = () => {
+            //     const playPromise = videoElement.play();
+    
+            //     if (playPromise !== undefined) {
+            //         playPromise.then(() => {
+            //             setLoading(false);
+            //         }).catch((error: any) => {
+            //             console.error("Video playback was prevented:", error);
+            //             setLoading(false);
+            //         });
+            //     }
+            // };
+    
+            // // Add event listener for canplaythrough event
+            // videoElement.addEventListener('canplaythrough', onVideoCanPlayThrough);
+            
 
-        videoElement?.addEventListener("playing", () => {
-            setLoading(false)
-        });
 
-        videoElement?.addEventListener("ended", function () {
-            // Change to the looping video
-            videoElement.src = "/loop.mp4";
-            videoElement.loop = true;
-            videoElement.play();
-        });
+            //check if video is already playing and set lofing to false if it is
+            if (videoElement.readyState > 3) {
+                setLoading(false);
+            }
+    
+            videoElement.addEventListener("playing", () => {
+                setLoading(false);
+            });
+    
+            videoElement.addEventListener("ended", () => {
+                if (loopVideoElement) {
+                    videoElement.style.display = "none"; // Hide the initial video
+                    loopVideoElement.style.display = "block"; // Show the loop video
+                    loopVideoElement.play().catch((error: any) => {
+                        console.error("Error trying to play the loop video:", error);
+                    });
+                }
+            });
+    
+            // Cleanup function to remove event listener
+            // return () => {
+            //     videoElement.removeEventListener('canplaythrough', onVideoCanPlayThrough);
+            // };
+        }
     }, []);
+    
 
     const scrollToNextScreen = () => {
         window.scrollBy({
@@ -57,34 +93,25 @@ export default function Home() {
                 overflowY: "hidden",
             }}
         >
-            {isLoading && <LoadingScreen />}
-            {/* <div
-                style={{
-                    perspective: "1px",
-                    overflowY: "scroll",
-                    height: "100vh",
-                    transformStyle: "preserve-3d",
-                }}
-            > */}
+            {/* {isLoading && <LoadingScreen />} */}
+
             <video
-                // autoPlay
-                // loop
+                id="loop-video"
+                preload="auto"
+                playsInline
                 muted
-                style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100vh",
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    objectFit: "cover",
-                    transform: `scale(${1 / scrollSpeed}) scaleX(-1)
-                            translateZ(-${1 / scrollSpeed - 1}px) 
-                            translateY(calc(${(1 - scrollSpeed) * -50}vh))`,
-                    transformOrigin: "top",
-                    // filter: "brightness(60%) contrast(250%)",
-                    filter: "brightness(90%) contrast(110%)",
-                }}
+                loop
+                className="hero-video"
+            >
+                <source src={"/loop.mp4"} type="video/mp4" />
+            </video>
+            <video
+                id="initial-video"
+                preload="auto"
+                playsInline
+                muted
+                autoPlay
+                className="hero-video"
             >
                 <source src={"/start.mp4"} type="video/mp4" />
             </video>
@@ -110,7 +137,7 @@ export default function Home() {
                     textStyle={{
                         textTransform: "uppercase",
                         width: "100%",
-                        fontSize: "10vw",
+                        fontSize: "Max(10vw, 3rem)",
                         fontFamily: "Monument-Extended",
                         display: "flex",
                         // justifyContent: "center",
@@ -126,19 +153,20 @@ export default function Home() {
                     duration={0.5}
                     triggerMargin="0%"
                     textStyle={{
-                        fontSize: "1.8vw",
-                        marginBottom: "20vh",
+                        fontSize: "Max(1.8vw, 1rem)",
                         fontFamily: "Monument-Extended",
                         fontWeight: 400,
                         marginLeft: "3vw",
                         lineHeight: 1.3,
-                        width: "40vw",
+                        width: "Max(40vw, 20rem)",
                     }}
                     text="New England's Premier Construction Labor Partner"
                 />
+                <div className="hero-spacer" />
             </div>
 
             <div
+                className="scroll-spacer"
                 style={{
                     position: "absolute",
                     width: "100vw",
@@ -146,8 +174,7 @@ export default function Home() {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-end",
-                    alignItems: "center",
-                    paddingBottom: "2rem",
+                    paddingInline: "5vw",
                     zIndex: 5,
                     opacity: 0.8,
                 }}
@@ -220,6 +247,7 @@ export default function Home() {
             </div>
 
             <div
+                className="hero-links"
                 style={{
                     position: "absolute",
                     color: "white",
@@ -230,7 +258,6 @@ export default function Home() {
                     justifyContent: "flex-end",
                     alignItems: "flex-end",
                     paddingInline: "3vw",
-                    paddingBottom: "2rem",
                     zIndex: 5,
                     opacity: 0.8,
                 }}
@@ -355,7 +382,7 @@ export default function Home() {
                         backgroundColor: "black",
                         paddingInline: "5vw",
                         paddingTop: "7rem",
-                        paddingBottom: "7rem",
+                        // paddingBottom: "7rem",
                         gap: "20px", // Adds space between items in the flex container
                     }}
                 >
@@ -383,8 +410,7 @@ export default function Home() {
                             yOffset={50}
                             delay={!isLoading ? 0 : 100}
                             textStyle={{
-                                fontSize: "2vw",
-                                width: "50vw",
+                                fontSize: "1.8rem",
                                 fontWeight: 300,
                                 lineHeight: 1.4,
                                 marginTop: "2rem",
@@ -399,6 +425,7 @@ export default function Home() {
                             delay={!isLoading ? 0 : 100}
                         >
                             <div
+                                className="desktop"
                                 style={{
                                     height: "36vw",
                                     width: "36vw",
@@ -420,19 +447,21 @@ export default function Home() {
                         </AnimatedComponent>
                     </div>
                     <div
+                        className="hero-links-bottom"
                         style={{
                             display: "flex",
                             justifyContent: "space-between",
                             width: "100%",
-                            marginTop: "-2rem",
                             zIndex: 2,
                             color: "white",
                             fontSize: "5.6vw",
                             fontFamily: "Monument-Extended",
                         }}
                     >
-                        <AnimatedComponent 
-                        delay={!isLoading ? 0 : 100}>
+                        <AnimatedComponent
+                            delay={!isLoading ? 0 : 100}
+                            triggerMargin="0px"
+                        >
                             <Link
                                 href={"/partner"}
                                 style={{
@@ -465,8 +494,10 @@ export default function Home() {
                                 </div>
                             </Link>
                         </AnimatedComponent>
-                        <AnimatedComponent 
-                        delay={!isLoading ? 0 : 100}>
+                        <AnimatedComponent
+                            delay={!isLoading ? 0 : 100}
+                            triggerMargin="0px"
+                        >
                             <Link
                                 href={"/apply"}
                                 style={{
@@ -501,8 +532,8 @@ export default function Home() {
                         </AnimatedComponent>
                     </div>
                 </div>
+                <Footer />
             </div>
         </div>
-        // </div>
     );
 }

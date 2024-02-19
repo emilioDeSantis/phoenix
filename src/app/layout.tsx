@@ -5,13 +5,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     openGraph: {
-      title: 'Revolutionizing Robotic Safety',
-      description: 'Experience the next frontier of robotic safety with the Supervisor Suite. Navigate the world where advanced technology meets universal safety standards, setting the pace for the future of robotics.',
-      url: 'https://3lawsrobotics.com/',
-      siteName: '3Lawsrobotics.com',
+      title: 'Phoenix Construction Resources',
+      description: 'Leading the way in construction labor services, Phoenix Construction Resources offers skilled, reliable labor for projects in Massachusetts. Discover efficient solutions for your construction needs.',
+      url: 'https://PhoenixConstructionResources.com/',
+      siteName: 'PhoenixConstructionResources.com',
       images: [
         {
-          url: '/og.png',
+          url: 'https://PhoenixConstructionResources.com/og.png',
           width: 1000,
           height: 600,
         },

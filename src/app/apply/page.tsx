@@ -19,6 +19,14 @@ import Link from "next/link";
 import TextSection from "@/Components/TextSection";
 import InternalPage from "@/Components/InternalPage";
 import NumberedSection from "@/Components/NumberedSection";
+import { Metadata } from "next";
+
+
+
+export const metadata: Metadata = {
+    title: 'Join Our Team - Apply Now | Phoenix Construction Resources',
+    description: `Seeking a rewarding career in construction? Apply to join Phoenix Construction Resources and be part of a team dedicated to excellence in construction labor across Massachusetts.`,
+};
 
 const Apply = () => {
 

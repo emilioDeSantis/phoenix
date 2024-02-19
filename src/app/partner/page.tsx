@@ -19,6 +19,13 @@ import Link from "next/link";
 import NumberedSection from "@/Components/NumberedSection";
 import InternalPage from "@/Components/InternalPage";
 import TextSection from "@/Components/TextSection";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Partner With Us | Phoenix Construction Resources Massachusetts',
+    description: `Enhance your construction projects by partnering with Phoenix Construction Resources. Our expertise in providing skilled labor ensures your project's success in Massachusetts.`,
+};
 
 const Partner = () => {
     return (

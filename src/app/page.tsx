@@ -14,10 +14,16 @@ import AnimatedWord from "@/Components/AnimatedWord";
 import LoadingScreen from "@/Components/LoadingScreen";
 import { log } from "console";
 import Footer from "@/Components/Footer";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const scrollSpeed = 1;
+
+export const metadata: Metadata = {
+      title: 'Phoenix Construction Resources | Premier Labor Services in Massachusetts',
+      description: 'Leading the way in construction labor services, Phoenix Construction Resources offers skilled, reliable labor for projects in Boston and across New England. Discover efficient solutions for your construction needs.',
+  };
 
 export default function Home() {
     // useSmoothScroll();

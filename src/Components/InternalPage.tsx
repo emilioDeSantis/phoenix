@@ -60,7 +60,7 @@ const InternalPage: React.FC<InternalPageProps> = ({
                         fill
                         src={hero}
                         alt={"image"}
-                        sizes="100vw"
+                        sizes="50vw"
                         priority
                         style={{
                             objectFit: "cover",

@@ -241,22 +241,22 @@ button[type="submit"]:active {
     left: 0;
     right: 0;
     z-index: -1;
-    transform: scaleX(-1);
+    /* transform: scaleX(-1); */
     filter: brightness(90%) contrast(110%);
     transform-origin: top;
-    object-position: 28% center;
+    object-position: 72% center;
 }
 
 .hero-spacer {
-    height: 40vh;
+    height: 18vh;
 }
 .scroll-spacer {
-    padding-bottom: 6rem;
+    padding-bottom: 1rem;
     align-items: flex-start;
 }
 
 .hero-links {
-    padding-bottom: 6rem;
+    padding-bottom: 1rem;
 }
 
 .hero-links-bottom {
@@ -296,7 +296,7 @@ button[type="submit"]:active {
         left: 0;
         right: 0;
         z-index: -1;
-        transform: scaleX(-1);
+        /* transform: scaleX(-1); */
         filter: brightness(90%) contrast(110%);
         transform-origin: top;
         object-position: center center;

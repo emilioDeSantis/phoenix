@@ -1,4 +1,3 @@
-"use client";
 import PageSubtitle from "@/Components/PageSubtitle";
 import PageContainer from "../../Components/PageContainer";
 import PageTitle from "../../Components/PageTitle";

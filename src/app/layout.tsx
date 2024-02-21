@@ -5,21 +5,25 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     openGraph: {
-      title: 'Phoenix Construction Resources',
-      description: 'Leading the way in construction labor services, Phoenix Construction Resources offers skilled, reliable labor for projects in Massachusetts. Discover efficient solutions for your construction needs.',
-      url: 'https://PhoenixConstructionResources.com/',
-      siteName: 'PhoenixConstructionResources.com',
-      images: [
-        {
-          url: 'https://PhoenixConstructionResources.com/og.png',
-          width: 1000,
-          height: 600,
-        },
-      ],
-      locale: 'en_US',
-      type: 'website',
+        title: "Phoenix Construction Resources",
+        description:
+            "Leading the way in construction labor services, Phoenix Construction Resources offers skilled, reliable labor for projects in Massachusetts. Discover efficient solutions for your construction needs.",
+        url: "https://PhoenixConstructionResources.com/",
+        siteName: "PhoenixConstructionResources.com",
+        images: [
+            {
+                url: "https://PhoenixConstructionResources.com/og.png",
+                width: 1000,
+                height: 600,
+            },
+        ],
+        locale: "en_US",
+        type: "website",
     },
-  };
+    title: "Phoenix Construction Resources | Premier Labor Services in Massachusetts",
+    description:
+        "Leading the way in construction labor services, Phoenix Construction Resources offers skilled, reliable labor for projects in Boston and across New England. Discover efficient solutions for your construction needs.",
+};
 
 export default function RootLayout({
     children,
@@ -28,8 +32,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-
-<Head>
+            <Head>
                 <link
                     rel="apple-touch-icon"
                     sizes="180x180"

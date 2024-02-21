@@ -1,5 +1,10 @@
-// LoadingScreen.js
-function LoadingScreen() {
+
+
+type LoadingScreenProps = {
+    // handleEnterSite: () => void;
+};
+
+const LoadingScreen: React.FC <LoadingScreenProps> = () => {
     return (
         <div style={{ 
             position: 'fixed', 

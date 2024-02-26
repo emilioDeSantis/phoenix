@@ -2,7 +2,12 @@
 import React, { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
-//,make it so that if theres an apply inout set to true its has different text
+// Utility function for email validation
+const validateEmail = (email: string) => {
+    if (!email) return true;   
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
 
 type FormProps = {
     apply?: boolean;
@@ -14,47 +19,63 @@ const Form: React.FC<FormProps> = ({ apply }) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [wasSuccessful, setwasSuccessful] = useState(false);
 
-    const handleSubmit = async () => {
+
+    const handleSubmit = async (e?: React.FormEvent) => {
+        e?.preventDefault(); // Only call if e is not undefined
         setIsLoading(true); // Set loading state
+        setError(""); // Reset error state
+        setwasSuccessful(false); // Reset submission message
 
-        // try {
-        //     const jotFormData = {
-        //         email: email,
-        //     };
+        if (!validateEmail(email)) {
+            setError("Please enter a valid email address.");
+            setIsLoading(false);
+            return;
+        }
 
-        //     const response = await fetch("/api/jotform", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(jotFormData),
-        //     });
+        try {
+            const jotFormData = {
+                email: email,
+                name: name,
+                company: company,
+                phone: phone,
+                message: message,
+                apply: apply,
+            };
 
-        //     if (!response.ok) {
-        //         throw new Error(`Error: ${response.statusText}`);
-        //     }
+            const response = await fetch("/api/jotform", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(jotFormData),
+            });
 
-        //     const data = await response.json();
-        //     console.log("Form submitted:", data);
-        //     // Reset form fields
-        //     setName("");
-        //     setCompany("");
-        //     setEmail("");
-        //     setPhone("");
-        //     setMessage("");
-        //     // Show confirmation here or in the SubmitButton component
-        //     // after successful submission:
-        //     setIsLoading(false); // Reset loading state
-        //     // Show success popup or handle success state
-        // } catch (error) {
-        //     console.error("Error submitting form:", error);
-        //     setIsLoading(false); // Reset loading state on error
-        //     // Handle error state
-        // }
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+
+            // Handle successful form submission
+            const data = await response.json();
+            console.log("Form submitted:", data);
+            setwasSuccessful(true);
+            // Reset form fields
+            setName("");
+            setCompany("");
+            setEmail("");
+            setPhone("");
+            setMessage("");
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setError("Failed to submit form. Please try again or give us a call.");
+        } finally {
+            setIsLoading(false); // Reset loading state
+        }
     };
+
 
     return (
         <div
@@ -153,7 +174,9 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                         }}
                     />
                 </div>
-                <SubmitButton isLoading={isLoading} onSubmit={handleSubmit} />
+                <SubmitButton isLoading={isLoading} onSubmit={handleSubmit} wasSuccessful={wasSuccessful}/>
+                {error && <div style={{ color: "red" }}>{error}</div>}
+                {wasSuccessful && <div style={{ color: "green" }}>Your submission has been received, and we will be in touch shortly.</div>}
 
 
             <h2

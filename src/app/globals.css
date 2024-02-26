@@ -250,6 +250,7 @@ button[type="submit"]:active {
 .hero-spacer {
     height: 18vh;
 }
+
 .scroll-spacer {
     padding-bottom: 1rem;
     align-items: flex-start;

@@ -47,9 +47,10 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ navLinks }) => {
                     justifyContent: "center",
                     alignItems: "center",
                     zIndex: 10,
+                    color:'white',
                 }}
             >
-                {isOpen && <XMarkIcon className="h-6 w-6" />}
+                {isOpen && <XMarkIcon className="h-6 w-6"/>}
                 {!isOpen && <Bars3Icon className="h-6 w-6" />}
             </button>
             <div

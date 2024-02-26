@@ -3,14 +3,16 @@ import React, { useState, useEffect } from "react";
 interface SubmitButtonProps {
     isLoading: boolean;
     onSubmit: () => void;
+    wasSuccessful: boolean;
 }
 
-const SubmitButton: React.FC<SubmitButtonProps> = ({ isLoading, onSubmit }) => {
+const SubmitButton: React.FC<SubmitButtonProps> = ({ isLoading, onSubmit, wasSuccessful }) => {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
 
     useEffect(() => {
         // This effect runs when the isPopupVisible changes
-        if (isPopupVisible) {
+        if (wasSuccessful) {
+            setIsPopupVisible(true);
             // Set a timeout to automatically close the popup after 3 seconds (3000 ms)
             const timer = setTimeout(() => {
                 setIsPopupVisible(false);
@@ -18,11 +20,11 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isLoading, onSubmit }) => {
             // Clear the timeout if the component is unmounted or if the popup closes early
             return () => clearTimeout(timer);
         }
-    }, [isPopupVisible]);
+    }, [wasSuccessful]);
 
     const handleClick = () => {
         onSubmit(); // Call the onSubmit function provided by the parent component
-        setIsPopupVisible(true); // Show popup on submit
+        // setIsPopupVisible(true); // Show popup on submit
     };
 
     return (

@@ -212,7 +212,7 @@ const Apply = () => {
                 </div>
             </div>
             <div id="form" />
-            <Form></Form>
+            <Form apply></Form>
         </InternalPage>
     );
 

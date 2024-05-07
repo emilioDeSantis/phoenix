@@ -16,6 +16,7 @@ const Header: React.FC = () => {
     const visable = useHideNavOnScroll();
 
     const links = [
+        
         { label: "Home", href: "/" },
         { label: "Partner", href: "/partner" },
         { label: "Apply", href: "/apply" },
@@ -32,9 +33,11 @@ const Header: React.FC = () => {
                 transform: `translateY(${visable ? 0 : -4}rem)`,
                 transition: "0.3s",
                 zIndex: 1000,
+                background: "#1C1D1E",
             }}
         >
             <div
+            className="side-padding"
                 style={{
                     width: "100%",
                     display: "flex",
@@ -43,7 +46,6 @@ const Header: React.FC = () => {
                     color: "white",
                     zIndex: 1000,
                     letterSpacing: "0.1em",
-                    paddingInline: "5vw",
                 }}
             >
                 <Link href="/">
@@ -60,7 +62,7 @@ const Header: React.FC = () => {
                         opacity: 1,
                     }}
                 >
-                    {links.map((link, index) => (
+                    {/* {links.map((link, index) => (
                         <Link
                             key={index}
                             ref={(el) => (linkRefs.current[index] = el)}
@@ -74,10 +76,10 @@ const Header: React.FC = () => {
                         >
                             <div>{link.label}</div>
                         </Link>
-                    ))}
+                    ))} */}
                 </nav>
                 <div className="mobile">
-                    <DropdownMenu navLinks={links} />
+                    {/* <DropdownMenu navLinks={links} /> */}
                 </div>
             </div>
         </div>

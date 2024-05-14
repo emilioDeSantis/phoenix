@@ -4,8 +4,9 @@ import SubmitButton from "./SubmitButton";
 
 // Utility function for email validation
 const validateEmail = (email: string) => {
-    if (!email) return true;   
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!email) return true;
+    const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 };
 
@@ -22,7 +23,6 @@ const Form: React.FC<FormProps> = ({ apply }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const [wasSuccessful, setwasSuccessful] = useState(false);
-
 
     const handleSubmit = async (e?: React.FormEvent) => {
         e?.preventDefault(); // Only call if e is not undefined
@@ -70,12 +70,13 @@ const Form: React.FC<FormProps> = ({ apply }) => {
             setMessage("");
         } catch (error) {
             console.error("Error submitting form:", error);
-            setError("Failed to submit form. Please try again or give us a call.");
+            setError(
+                "Failed to submit form. Please try again or give us a call."
+            );
         } finally {
             setIsLoading(false); // Reset loading state
         }
     };
-
 
     return (
         <div
@@ -83,8 +84,9 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                 width: "100%",
                 justifyContent: "center",
                 display: "flex",
-                marginTop: "5rem",
+                paddingTop: "5rem",
                 paddingInline: "5vw",
+                minHeight: "100vh",
             }}
         >
             <form
@@ -93,32 +95,37 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                     width: "Min(36rem, 100%)",
                     display: "flex",
                     flexDirection: "column",
+                    justifyContent: "center",
                     gap: "1rem",
                 }}
             >
                 <h2
                     style={{
                         width: "100%",
-                        fontFamily: "Monument-Extended",
-                        fontSize: "Min(2.6rem, 8vw)",
-                        color: "white",
+                        fontSize: "2rem",
+                        color: "black",
                         lineHeight: "1.2",
                         textTransform: "uppercase",
+                        fontWeight: 700,
                     }}
                 >
-                    {apply ? `Start Your Application Process` : `Schedule a Consultation`}
+                    {apply
+                        ? `Start Your Application Process`
+                        : `Deploy a Skilled Labor Team`}
                 </h2>
                 <p
                     style={{
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         color: "fff",
-                        opacity: 0.8,
+                        opacity: 0.7,
                         width: "100%",
-                        fontWeight: 300,
-                        marginBottom: "5rem",
+                        fontWeight: 400,
+                        marginBottom: "3rem",
                     }}
                 >
-                    {apply? `Complete the form below to schedule your initial meeting. We’re eager to meet you and explore the opportunities at Phoenix.` : `Complete the form below to initiate contact with our team. We're ready to discuss your construction labor needs.`}
+                    {apply
+                        ? `Complete the form below to schedule your initial meeting. We’re eager to meet you and explore the opportunities at Phoenix.`
+                        : `Fill out the form below. We will contact you to discuss your needs and get a taylored team of laborers or carpenters to your site ASAP.`}
                 </p>
                 <InputHStack>
                     <Input
@@ -128,13 +135,15 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    {!apply && <Input
-                        label="Company"
-                        type="text"
-                        // placeholder="Enter your company"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                    />}
+                    {!apply && (
+                        <Input
+                            label="Company"
+                            type="text"
+                            // placeholder="Enter your company"
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}
+                        />
+                    )}
                 </InputHStack>
                 <InputHStack>
                     <Input
@@ -157,9 +166,9 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                         style={{
                             display: "block",
                             marginBottom: "0.5rem",
-                            color: "white",
+                            color: "black",
                             fontSize: "0.9rem",
-                            fontFamily: "Monument-Extended",
+                            fontWeight: 500,
                         }}
                     >
                         Message
@@ -174,34 +183,18 @@ const Form: React.FC<FormProps> = ({ apply }) => {
                         }}
                     />
                 </div>
-                <SubmitButton isLoading={isLoading} onSubmit={handleSubmit} wasSuccessful={wasSuccessful}/>
+                <SubmitButton
+                    isLoading={isLoading}
+                    onSubmit={handleSubmit}
+                    wasSuccessful={wasSuccessful}
+                />
                 {error && <div style={{ color: "red" }}>{error}</div>}
-                {wasSuccessful && <div style={{ color: "green" }}>Your submission has been received, and we will be in touch shortly.</div>}
-
-
-            <h2
-                    style={{
-                        width: "100%",
-                        fontFamily: "Monument-Extended",
-                        fontSize: "Min(1.6rem, 5vw)",
-                        color: "white",
-                        textTransform: "uppercase",
-                        marginTop: "8rem",
-                    }}
-                >
-                    or give us a call
-                </h2>
-                <p
-                    style={{
-                        fontSize: "Min(5rem, 12vw)",
-                        color: "fff",
-                        lineHeight: 1,
-                        width: "100%",
-                        fontWeight: 100,
-                    }}
-                >
-                    781-641-2858
-                </p>
+                {wasSuccessful && (
+                    <div style={{ color: "green" }}>
+                        Your submission has been received, and we will be in
+                        touch shortly.
+                    </div>
+                )}
             </form>
         </div>
     );
@@ -228,9 +221,9 @@ const Input: React.FC<InputProps> = ({
                 style={{
                     display: "block",
                     marginBottom: "0.5rem",
-                    color: "white",
+                    color: "black",
                     fontSize: "0.9rem",
-                    fontFamily: "Monument-Extended",
+                    fontWeight: 500,
                 }}
             >
                 {label}

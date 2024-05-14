@@ -37,13 +37,13 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isLoading, onSubmit, wasSuc
                     backgroundColor: isLoading ? "#D3D3D3" : "#2753C5",
                     color: "white",
                     padding: "0.8rem 2rem",
-                    fontSize: "0.9rem",
+                    fontSize: "1.2rem",
                     borderRadius: "5px",
                     cursor: isLoading ? "default" : "pointer",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontFamily: "Monument-Extended",
+                    fontWeight: 500,
                 }}
             >
                 {isLoading ? "Loading..." : "Submit"}

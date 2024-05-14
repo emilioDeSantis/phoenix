@@ -547,34 +547,37 @@ export default function Home() {
     return (
         <main>
             <section
-            className="flex-direction"
                 style={{
                     width: "100vw",
-                    height: "Calc(100vh - 3rem)",
+                    height: "100vh",
                     display: "flex",
                     paddingTop: "3rem",
                     alignItems: "center",
+                    flexDirection: "column",
+                    borderBottom: "1px solid #ddd",
+                    position: "relative",
                 }}
             >
                 <div
                     style={{
-                        minHeight: "60vw",
+                        minHeight: "max(12vw, 8rem)",
                         width: "100%",
                         position: "relative",
+                        background: "black",
                     }}
                 >
                     <Image
                         fill
-                        src={"/50prospect.png"}
+                        src={"/banner.png"}
                         alt={"image"}
                         sizes="100vw"
                         priority
                         style={{
                             objectFit: "cover",
-                            filter: "saturate(150%) brightness(40%)",
+                            opacity: 0.6,
                         }}
                     />
-                    <h2
+                    <div
                         className="side-padding"
                         style={{
                             position: "absolute",
@@ -582,362 +585,427 @@ export default function Home() {
                             bottom: 0,
                             width: "100%",
                             color: "white",
-                            fontSize: "1.9rem",
-                            fontWeight: 600,
                             lineHeight: 1.3,
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
                         }}
                     >
-                        Need Skilled Laborers for Your Construction Project?
-                    </h2>
+                        <h3
+                            style={{
+                                fontSize: "max(1.8vw, 1.2rem)",
+                                fontWeight: 500,
+                            }}
+                        >
+                            {`Massachusetts’ Leading`}
+                        </h3>
+                        <h2
+                            style={{
+                                fontSize: "max(3.6vw, 1.8rem)",
+                                textTransform: "uppercase",
+                                fontWeight: 700,
+                                lineHeight: 1,
+                            }}
+                        >
+                            {`Construction Staffing Service`}
+                        </h2>
+                    </div>
+                </div>
+                <div
+                    className="side-padding flex-direction"
+                    style={{
+                        display: "flex",
+                        height: "100%",
+                        width: "100%",
+                    }}
+                >
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            flexGrow: 1,
+
+                            justifyContent: "center",
+                            paddingBlock: "1rem",
+                        }}
+                    >
+                        <h2
+                            style={{
+                                textTransform: "uppercase",
+                                fontSize: "max(1.4vw,1rem)",
+                                fontWeight: 600,
+                            }}
+                        >
+                            Your Solution for
+                        </h2>
+                        <h1
+                            style={{
+                                fontSize: "max(6.4vw, 2.8rem)",
+                                fontWeight: 800,
+                                lineHeight: 1,
+                                marginTop: "1.6vw",
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            Skilled Labor <br></br>and Carpentry
+                        </h1>
+                        <p
+                            style={{
+                                marginTop: "4vw",
+                                opacity: 0.7,
+                                fontWeight: 500,
+                                lineHeight: 1.6,
+                            }}
+                        >{`• Custom-Tailored Teams`}</p>
+                        <p
+                            style={{
+                                opacity: 0.7,
+                                fontWeight: 500,
+                                lineHeight: 1.6,
+                            }}
+                        >{`• On standby, ready to be deployed`}</p>
+                        <Link
+                            href="/contact"
+                            style={{
+                                fontSize: "1.5rem",
+                                fontWeight: 500,
+                                color: "#ffffff",
+                                cursor: "pointer",
+                                paddingBlock: "0.6rem",
+                                background: "#FF5D39",
+                                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.25)",
+                                display: "flex",
+                                justifyContent: "center",
+                                filter: "saturate(120%)",
+                                maxWidth: "24rem",
+                                marginTop: "5vw",
+                                zIndex: 2,
+                            }}
+                        >
+                            Deploy a Team Now →
+                        </Link>
+                    </div>
+                    <div
+                        style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            height: "100%",
+                        }}
+                    >
+                        <div
+                            style={{
+                                // height: "100%",
+                                // minWidth: "28vw",
+                                // position: "relative",
+                                height: "100%",
+                                aspectRatio: "0.63",
+                                position: "relative",
+                            }}
+                        >
+                            <Image
+                                fill
+                                src={"/hero-worker.png"}
+                                alt={"image"}
+                                sizes="30vw"
+                                priority
+                                style={{
+                                    objectFit: "cover",
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                className="scroll-button"
+                    style={{
+                        position: "absolute",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <Link
+                        href="#scroll"
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            textAlign: "center",
+                            whiteSpace: "nowrap",
+                            padding: "1rem",
+                            opacity: 0.5,
+                        }}
+                    >
+                        learn more <br></br>↓
+                    </Link>
+                </div>
+            </section>
+            <div
+                id="scroll"
+                className="side-padding"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "100%",
+                    paddingBlock: "3rem",
+                    borderBottom: "1px solid #ddd",
+                }}
+            >
+                <h3
+                    style={{
+                        // textTransform: "uppercase",
+                        fontSize: "2.4rem",
+                        fontWeight: 600,
+                    }}
+                >
+                    Contract Staffing
+                </h3>
+                <p
+                    style={{
+                        fontWeight: 400,
+                        marginTop: "0.6rem",
+                        fontSize: "1.2rem",
+                        opacity: 0.7,
+                        maxWidth: "42rem",
+                        lineHeight: 1.2,
+                    }}
+                >
+                    {`We offer a unique contract staffing service that provides experienced labor teams ready to be deployed to your project site.`}
+                </p>
+
+                <div
+                    style={{
+                        borderBottom: "1px solid #ddd",
+                        marginTop: "3rem",
+                    }}
+                />
+
+                <h3
+                    style={{
+                        fontSize: "4.4rem",
+                        fontWeight: 800,
+                        textTransform: "uppercase",
+                        lineHeight: 1.2,
+                        marginTop: "2rem",
+                    }}
+                >
+                    {`here's how it works`}
+                </h3>
+                <p
+                    style={{
+                        fontWeight: 400,
+                        marginTop: "1.6rem",
+                        fontSize: "1.6rem",
+                        opacity: 0.8,
+                        maxWidth: "56rem",
+                        lineHeight: 1.2,
+                    }}
+                >
+                    {`Phoenix employs skilled laborers and carpenters who can be hired for the duration of your project. While they work under your direction at the job site, they remain employees of Phoenix Construction.`}
+                    <br></br>
+                    <br></br>
+                    {`This means:`}
+                </p>
+
+                <div
+                    className="flex-direction"
+                    style={{
+                        display: "flex",
+                        width: "100%",
+                        marginTop: "2rem",
+                        gap: "2rem",
+                    }}
+                >
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <h4
+                            style={{
+                                fontSize: "1.8rem",
+                                fontWeight: 500,
+                            }}
+                        >
+                            Immediate Expertise
+                        </h4>
+
+                        <p
+                            style={{
+                                marginTop: "1rem",
+                                fontWeight: 400,
+                                opacity: 0.6,
+                                lineHeight: 1.2,
+                            }}
+                        >
+                            {`Our workers are experienced and ready to start, eliminating the need for an onboarding process.`}
+                        </p>
+                    </div>
+                    <div className="divider" />
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <h4
+                            style={{
+                                fontSize: "1.8rem",
+                                fontWeight: 500,
+                            }}
+                        >
+                            Flexibility
+                        </h4>
+
+                        <p
+                            style={{
+                                marginTop: "1rem",
+                                fontWeight: 400,
+                                opacity: 0.6,
+                                lineHeight: 1.2,
+                            }}
+                        >
+                            {`You can easily adjust the size of your team based on your project needs. Whether you need workers temporarily or for the entire duration of your project, we have you covered.`}
+                        </p>
+                    </div>
+                    <div className="divider" />
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <h4
+                            style={{
+                                fontSize: "1.8rem",
+                                fontWeight: 500,
+                            }}
+                        >
+                            No Long-term Commitment
+                        </h4>
+
+                        <p
+                            style={{
+                                marginTop: "1rem",
+                                fontWeight: 400,
+                                opacity: 0.6,
+                                lineHeight: 1.2,
+                            }}
+                        >
+                            {`Hire teams for the specific duration of your project without worrying about long-term employment contracts.`}
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style={{
+                        borderBottom: "1px solid #ddd",
+                        marginTop: "3rem",
+                    }}
+                />
+
+                <h3
+                    style={{
+                        fontSize: "2.4rem",
+                        fontWeight: 800,
+                        textTransform: "uppercase",
+                        lineHeight: 1.2,
+                        marginTop: "2rem",
+                    }}
+                >
+                    {`Who is this for?`}
+                </h3>
+                <p
+                    style={{
+                        fontWeight: 400,
+                        marginTop: "1.6rem",
+                        fontSize: "1.6rem",
+                        opacity: 0.8,
+                        maxWidth: "56rem",
+                        lineHeight: 1.2,
+                    }}
+                >
+                    {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project’s success.`}
+                </p>
+            </div>
+            <div
+                className="flex-direction"
+                style={{
+                    display: "flex",
+                    width: "100%",
+                    borderBottom: "1px solid #ddd",
+                }}
+            >
+                <div
+                    style={{
+                        aspectRatio: "3/2",
+                        minWidth: "50vw",
+                        position: "relative",
+                    }}
+                >
+                    <Image
+                        fill
+                        src={"/team.png"}
+                        alt={"image"}
+                        sizes="100vw"
+                        priority
+                        style={{
+                            objectFit: "cover",
+                            filter: "saturate(120%)",
+                        }}
+                    />
                 </div>
                 <div
                     className="side-padding"
                     style={{
+                        paddingBlock: "2rem",
                         display: "flex",
                         flexDirection: "column",
-                        width: "100%",
-                        height: "100%",
-                        maxHeight: '30rem',
-                        justifyContent: "space-between",
-                        paddingBottom: "6rem",
-                        // paddingTop: "3rem",
+                        justifyContent: "center",
                     }}
                 >
-                    <div />
-                    <h1
+                    <h3
                         style={{
-                            fontSize: "2.6rem",
+                            fontSize: "3rem",
                             fontWeight: 800,
                             textTransform: "uppercase",
                             lineHeight: 1.2,
                         }}
                     >
-                        Hire a Phoenix Team
-                    </h1>
-                    <p
-                        style={{
-                            fontWeight: 500,
-                            lineHeight: 1.2,
-                            opacity: 0.6,
-                        }}
-                    >
-                        {`Custom-Tailored for Your Site's Specific Needs.`}
-                        <br></br>
-                        <br></br>
-                        {`Our experienced workers are on standby, ready to be deployed to your project at a moment's notice.`}
-                    </p>
-                    <Link
-                        href="/contact"
-                        style={{
-                            fontSize: "1.5rem",
-                            fontWeight: 500,
-                            color: "#ffffff",
-                            cursor: "pointer",
-                            paddingBlock: "0.6rem",
-                            background: "#FF5D39",
-                            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.25)",
-                            display: "flex",
-                            justifyContent: "center",
-                            filter: "saturate(120%)",
-                        }}
-                    >
-                        Deploy a Team Now →
-                    </Link>
-                </div>
-            </section>
-
-            <div
-                style={{
-                    aspectRatio: "3/2",
-                    maxWidth: "30rem",
-                    position: "relative",
-                }}
-            >
-                <Image
-                    fill
-                    src={"/team1.png"}
-                    alt={"image"}
-                    sizes="100vw"
-                    priority
-                    style={{
-                        objectFit: "cover",
-                        filter: "saturate(120%)",
-                    }}
-                />
-            </div>
-            <h3
-                className="side-padding"
-                style={{
-                    textTransform: "uppercase",
-                    fontSize: "1rem",
-                    fontWeight: 400,
-                    opacity: 0.7,
-                    marginTop: "3rem",
-                }}
-            >
-                Contract Staffing
-            </h3>
-
-            <p
-                className="side-padding"
-                style={{
-                    marginTop: "1rem",
-                    fontSize: "1.5rem",
-                    fontWeight: 500,
-                    opacity: 0.7,
-                    lineHeight: 1.2,
-                }}
-            >
-                {`At Phoenix Construction Resources, we understand that your project needs can change at a moment's notice. That's why we offer custom-assembled labor teams, ready to be deployed immediately to your site for the entire duration of your project.`}
-            </p>
-            <h2
-                className="side-padding"
-                style={{
-                    fontSize: "2rem",
-                    fontWeight: 800,
-                    textTransform: "uppercase",
-                    lineHeight: 1.2,
-                    marginTop: "4rem",
-                }}
-            >
-                {`here's how it works`}
-            </h2>
-            <div
-                className="flex-direction side-padding"
-                style={{
-                    display: "flex",
-                    width: "100%",
-                    marginTop: "2rem",
-                    gap: "2rem",
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        paddingInline: "1rem",
-                        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
-                        paddingBlock: "2rem",
-                        borderRadius: "1rem",
-                        background: "white",
-                    }}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                        style={{
-                            height: "4rem",
-                            width: "4rem",
-                            opacity: 0.8,
-                        }}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
-                        />
-                    </svg>
-
-                    <h3
-                        style={{
-                            textTransform: "uppercase",
-                            fontSize: "1rem",
-                            fontWeight: 400,
-                            opacity: 0.7,
-                            marginTop: "2rem",
-                        }}
-                    >
-                        Custom Team Assembly
+                        {`Why choose a phoenix team`}
                     </h3>
 
                     <p
                         style={{
-                            marginTop: "1rem",
-                            fontSize: "1.4rem",
+                            marginTop: "1.6rem",
+                            fontSize: "1.2rem",
                             fontWeight: 500,
                             opacity: 0.7,
                             lineHeight: 1.2,
                         }}
                     >
-                        {`Based on your project's specific time and size requirements, we assemble a team perfectly aligned with your needs. Whether it’s a small group or a large crew, we have the flexibility to scale and adapt.`}
+                        {`• We Handle all logistics related to payment and personnel management.`}
                     </p>
-                </div>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        paddingInline: "1rem",
-                        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
-                        paddingBlock: "2rem",
-                        borderRadius: "1rem",
-                        background: "white",
-                    }}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                        style={{
-                            height: "4rem",
-                            width: "4rem",
-                            opacity: 0.8,
-                        }}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-                        />
-                    </svg>
-
-                    <h3
-                        style={{
-                            textTransform: "uppercase",
-                            fontSize: "1rem",
-                            fontWeight: 400,
-                            opacity: 0.7,
-                            marginTop: "2rem",
-                        }}
-                    >
-                        Immediate Deployment
-                    </h3>
-
                     <p
                         style={{
                             marginTop: "1rem",
-                            fontSize: "1.4rem",
+                            fontSize: "1.2rem",
                             fontWeight: 500,
                             opacity: 0.7,
                             lineHeight: 1.2,
                         }}
                     >
-                        {`Your tailored team can be on your site quickly, reducing downtime and ensuring that your project continues to move forward without interruption.`}
-                    </p>
-                </div>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        paddingInline: "1rem",
-                        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
-                        paddingBlock: "2rem",
-                        borderRadius: "1rem",
-                        background: "white",
-                    }}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                        style={{
-                            height: "4rem",
-                            width: "4rem",
-                            opacity: 0.8,
-                        }}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
-                        />
-                    </svg>
-
-                    <h3
-                        style={{
-                            textTransform: "uppercase",
-                            fontSize: "1rem",
-                            fontWeight: 400,
-                            opacity: 0.7,
-                            marginTop: "2rem",
-                        }}
-                    >
-                        Experienced and Self-Sufficient Workers
-                    </h3>
-
-                    <p
-                        style={{
-                            marginTop: "1rem",
-                            fontSize: "1.4rem",
-                            fontWeight: 500,
-                            opacity: 0.7,
-                            lineHeight: 1.2,
-                        }}
-                    >
-                        {`Each member of your Phoenix team comes with the experience and safety training needed to hit the ground running. They are prepared to work with as much or as little supervision as you deem necessary, integrating seamlessly into your existing operations.`}
+                        {`• You have the freedom to modify your workforce quickly and easily.`}
                     </p>
                 </div>
             </div>
-
-            <div
-                style={{
-                    minHeight: "60vw",
-                    width: "100%",
-                    position: "relative",
-                    marginTop: "4rem",
-                }}
-            >
-                <Image
-                    fill
-                    src={"/team2.png"}
-                    alt={"image"}
-                    sizes="100vw"
-                    priority
-                    style={{
-                        objectFit: "cover",
-                        filter: "saturate(120%)",
-                    }}
-                />
-            </div>
-            <h2
-                className="side-padding"
-                style={{
-                    fontSize: "2rem",
-                    fontWeight: 800,
-                    textTransform: "uppercase",
-                    lineHeight: 1.2,
-                    marginTop: "3rem",
-                }}
-            >
-                {`Why choose a phoenix team`}
-            </h2>
-
-            <p
-                className="side-padding"
-                style={{
-                    marginTop: "1.6rem",
-                    fontSize: "1.2rem",
-                    fontWeight: 500,
-                    opacity: 0.7,
-                    lineHeight: 1.2,
-                }}
-            >
-                {`We Handle all logistics related to payment and personnel management.`}
-            </p>
-            <p
-                className="side-padding"
-                style={{
-                    marginTop: "1rem",
-                    fontSize: "1.2rem",
-                    fontWeight: 500,
-                    opacity: 0.7,
-                    lineHeight: 1.2,
-                }}
-            >
-                {`You have the freedom to modify your workforce quickly and easily.`}
-            </p>
             <div
                 className="side-padding"
                 style={{
@@ -947,7 +1015,9 @@ export default function Home() {
                     paddingBlock: "1.6rem",
                     // borderRadius: "1rem",
                     background: "#2b6288",
-                    marginTop: "3rem",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginTop: "4rem",
                 }}
             >
                 <div
@@ -960,6 +1030,8 @@ export default function Home() {
                         paddingTop: "1rem",
                         borderRadius: "1rem",
                         background: "#ffffff11",
+                        maxWidth: "30rem",
+                        alignItems: "center",
                     }}
                 >
                     <svg
@@ -1001,241 +1073,213 @@ export default function Home() {
                             opacity: 0.8,
                             lineHeight: 1.2,
                             color: "white",
+                            textAlign: "center",
                         }}
                     >
                         {`All Phoenix employees arive with proper safety training and OSHA certification.`}
                     </p>
                 </div>
             </div>
-            <h3
-                className="side-padding"
-                style={{
-                    textTransform: "uppercase",
-                    fontSize: "1rem",
-                    fontWeight: 400,
-                    opacity: 0.7,
-                    marginTop: "4rem",
-                }}
-            >
-                General Labor Services
-            </h3>
-
-            <h4
-                className="side-padding"
-                style={{
-                    fontSize: "1.8rem",
-                    fontWeight: 700,
-                    marginTop: "0.6rem",
-                    lineHeight: 1.2,
-                }}
-            >
-                For Sites Requiring Skilled Carpentry and General Labor
-            </h4>
-
-            <p
-                className="side-padding"
-                style={{
-                    marginTop: "2rem",
-                    fontSize: "1.2rem",
-                    fontWeight: 500,
-                    opacity: 0.7,
-                    lineHeight: 1.2,
-                }}
-            >
-                {`Phoenix employees are experienced in a wide range of essential construction tasks. Whether your site needs skilled carpentry or general labor assistance, we have the expertise to support your project's success.`}
-            </p>
-
 
             <div
+                className="flex-direction"
                 style={{
-                    minHeight: "70vw",
+                    display: "flex",
                     width: "100%",
-                    position: "relative",
-                    marginTop: "3rem",
+                    borderBottom: "1px solid #ddd",
                 }}
             >
-                <Image
-                    fill
-                    src={"/sweeper.png"}
-                    alt={"image"}
-                    sizes="100vw"
-                    priority
+                <div
+                    className="side-padding"
                     style={{
-                        objectFit: "cover",
-                        filter: "saturate(120%)",
+                        paddingBlock: "2rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        flexGrow: 1,
                     }}
-                />
+                >
+                    <h4
+                        style={{
+                            fontSize: "3rem",
+                            fontWeight: 800,
+                            textTransform: "uppercase",
+                            lineHeight: 1.2,
+                        }}
+                    >
+                        Our Services
+                    </h4>
+                    <ul
+                        style={{
+                            display: "flex",
+                            marginTop: "1rem",
+                            gap: "0.6rem",
+                            flexDirection: "column",
+                        }}
+                    >
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            Carpentry
+                        </li>
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            General Labor
+                        </li>
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            Punch List
+                        </li>
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            Site Preparation
+                        </li>
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            Waste Disposal
+                        </li>
+                        <li
+                            style={{
+                                // textTransform: "uppercase",
+                                fontSize: "1.4rem",
+                                fontWeight: 700,
+                                lineHeight: 1.2,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.6rem",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "100%",
+                                    background: "#000000",
+                                }}
+                            />
+                            Material Handling
+                        </li>
+                    </ul>
+
+                    <Link
+                        href="/contact"
+                        style={{
+                            fontSize: "1.2rem",
+                            fontWeight: 500,
+                            color: "#FF5D39",
+                            cursor: "pointer",
+                            paddingBlock: "0.6rem",
+                            display: "flex",
+                            marginTop: "1rem",
+                        }}
+                    >
+                        Learn More →
+                    </Link>
+                </div>
+                <div
+                    style={{
+                        aspectRatio: "3/2",
+                        minWidth: "50vw",
+                        position: "relative",
+                    }}
+                >
+                    <Image
+                        fill
+                        src={"/sweeper2.png"}
+                        alt={"image"}
+                        sizes="100vw"
+                        priority
+                        style={{
+                            objectFit: "cover",
+                            filter: "saturate(120%)",
+                        }}
+                    />
+                </div>
             </div>
-
-            <h4
-                className="side-padding"
-                style={{
-                    textTransform: "uppercase",
-                    fontSize: "1.4rem",
-                    fontWeight: 500,
-                    marginTop: "3rem",
-                    lineHeight: 1.2,
-                    opacity: 0.8,
-                }}
-            >
-                Our teams are proficient in
-            </h4>
-            <ul
-                className="side-padding"
-                style={{
-                    display: "flex",
-                    marginTop: "1rem",
-                    gap: "0.6rem",
-                    flexDirection: "column",
-                }}
-            >
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>Carpentry
-                </li>
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>
-                    General Labor
-                </li>
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>
-                    Digging
-                </li>
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>
-                    Site Preparation
-                </li>
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>
-                    Waste Disposal
-                </li>
-                <li
-                    style={{
-                        // textTransform: "uppercase",
-                        fontSize: "1.4rem",
-                        fontWeight: 700,
-                        lineHeight: 1.2,
-                        display: "flex",
-                        alignItems: "center",
-                        gap : "0.6rem",
-                    }}
-                >
-                    <div style={{
-                        height: "0.4rem",
-                        width: "0.4rem",
-                        borderRadius: "100%",
-                        background: "#000000",
-                    }}/>
-                    Material Handling
-                </li>
-            </ul>
-
-
-
-            <p
-                className="side-padding"
-                style={{
-                    marginTop: "3rem",
-                    fontSize: "1.1rem",
-                    fontWeight: 500,
-                    opacity: 0.7,
-                    lineHeight: 1.2,
-                }}
-            >
-                {`With Phoenix, your construction needs are covered by professionals who bring both skill and dedication to every task.`}
-            </p>
-
-            <Link
-            className="side-padding"
-                href="/contact"
-                style={{
-                    fontSize: "1.2rem",
-                    fontWeight: 500,
-                    color: "#FF5D39",
-                    cursor: "pointer",
-                    paddingBlock: "0.6rem",
-                    display: "flex",
-                    marginTop: "1rem",
-                }}
-            >
-                Learn More About Our Services →
-            </Link>
-
-            <div style={{ height: "10rem" }} />
         </main>
     );
 }

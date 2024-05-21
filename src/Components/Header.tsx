@@ -18,8 +18,8 @@ const Header: React.FC = () => {
     const links = [
         
         { label: "Home", href: "/" },
-        { label: "Partner", href: "/partner" },
-        { label: "Apply", href: "/apply" },
+        { label: "Partner", href: "/partner-form" },
+        { label: "Apply", href: "/apply-form" },
         // { name: "Contact", href: "/contact" },
     ];
     return (
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                         opacity: 1,
                     }}
                 >
-                    {/* {links.map((link, index) => (
+                    {links.map((link, index) => (
                         <Link
                             key={index}
                             ref={(el) => (linkRefs.current[index] = el)}
@@ -76,10 +76,10 @@ const Header: React.FC = () => {
                         >
                             <div>{link.label}</div>
                         </Link>
-                    ))} */}
+                    ))}
                 </nav>
                 <div className="mobile">
-                    {/* <DropdownMenu navLinks={links} /> */}
+                    <DropdownMenu navLinks={links} />
                 </div>
             </div>
         </div>

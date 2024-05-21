@@ -16,6 +16,7 @@
 // import Footer from "@/Components/Footer";
 // import { Metadata } from "next";
 
+import LinkToForm from "@/Components/LinkToForm";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -665,7 +666,7 @@ export default function Home() {
                             }}
                         >{`• On standby, ready to be deployed`}</p>
                         <Link
-                            href="/contact"
+                            href="/partner-form"
                             style={{
                                 fontSize: "1.5rem",
                                 fontWeight: 500,
@@ -705,7 +706,7 @@ export default function Home() {
                         >
                             <Image
                                 fill
-                                src={"/hero-worker.png"}
+                                src={"/arms.png"}
                                 alt={"image"}
                                 sizes="30vw"
                                 priority
@@ -904,36 +905,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div
-                    style={{
-                        borderBottom: "1px solid #ddd",
-                        marginTop: "3rem",
-                    }}
-                />
-
-                <h3
-                    style={{
-                        fontSize: "2.4rem",
-                        fontWeight: 800,
-                        textTransform: "uppercase",
-                        lineHeight: 1.2,
-                        marginTop: "2rem",
-                    }}
-                >
-                    {`Who is this for?`}
-                </h3>
-                <p
-                    style={{
-                        fontWeight: 400,
-                        marginTop: "1.6rem",
-                        fontSize: "1.6rem",
-                        opacity: 0.8,
-                        maxWidth: "56rem",
-                        lineHeight: 1.2,
-                    }}
-                >
-                    {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project’s success.`}
-                </p>
+                
             </div>
             <div
                 className="flex-direction"
@@ -952,7 +924,7 @@ export default function Home() {
                 >
                     <Image
                         fill
-                        src={"/team.png"}
+                        src={"/handshake.png"}
                         alt={"image"}
                         sizes="100vw"
                         priority
@@ -1000,12 +972,47 @@ export default function Home() {
                             fontWeight: 500,
                             opacity: 0.7,
                             lineHeight: 1.2,
+                            marginBottom: "3rem",
                         }}
                     >
                         {`• You have the freedom to modify your workforce quickly and easily.`}
                     </p>
+                    <LinkToForm text="Hire Phoenix"/>
                 </div>
             </div>
+
+            <div 
+            className="side-padding"
+            style={{
+                display: "flex",
+                flexDirection: "column",
+
+            }}>
+
+                <h3
+                    style={{
+                        fontSize: "2.4rem",
+                        fontWeight: 800,
+                        textTransform: "uppercase",
+                        lineHeight: 1.2,
+                        marginTop: "2rem",
+                    }}
+                >
+                    {`Who is this for?`}
+                </h3>
+                <p
+                    style={{
+                        fontWeight: 400,
+                        marginTop: "1.6rem",
+                        fontSize: "1.6rem",
+                        opacity: 0.8,
+                        maxWidth: "56rem",
+                        lineHeight: 1.2,
+                    }}
+                >
+                    {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project’s success.`}
+                </p>
+                </div>
             <div
                 className="side-padding"
                 style={{
@@ -1115,6 +1122,7 @@ export default function Home() {
                             marginTop: "1rem",
                             gap: "0.6rem",
                             flexDirection: "column",
+                            marginBottom: "3rem",
                         }}
                     >
                         <li
@@ -1245,20 +1253,8 @@ export default function Home() {
                         </li>
                     </ul>
 
-                    <Link
-                        href="/contact"
-                        style={{
-                            fontSize: "1.2rem",
-                            fontWeight: 500,
-                            color: "#FF5D39",
-                            cursor: "pointer",
-                            paddingBlock: "0.6rem",
-                            display: "flex",
-                            marginTop: "1rem",
-                        }}
-                    >
-                        Learn More →
-                    </Link>
+                    
+                    <LinkToForm text="Hire Phoenix"/>
                 </div>
                 <div
                     style={{
@@ -1269,7 +1265,7 @@ export default function Home() {
                 >
                     <Image
                         fill
-                        src={"/sweeper2.png"}
+                        src={"/shovel.png"}
                         alt={"image"}
                         sizes="100vw"
                         priority

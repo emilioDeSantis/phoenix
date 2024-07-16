@@ -14,7 +14,6 @@ export const useConversionTracking = () => {
           window.location.href = url;
         }
       };
-      alert('Conversion tracking is working');
       
       window.gtag('event', 'conversion', {
         'send_to': 'AW-10979067928/oXqHCNuTs8MZEJiQnfMo',

@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 // import Image from "next/image";
 // import { Inter } from "next/font/google";
 // import HeroLink from "../Components/HeroLink";
@@ -19,6 +19,7 @@
 import LinkToForm from "@/Components/LinkToForm";
 import Image from "next/image";
 import Link from "next/link";
+import { useConversionTracking } from "./hooks/useConversionTracking";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -544,7 +545,749 @@ import Link from "next/link";
 // "use client";
 // import Image from "nex
 
+// export default function Home() {
+//     return (
+//         <main>
+//             <section
+//                 style={{
+//                     width: "100vw",
+//                     height: "100vh",
+//                     display: "flex",
+//                     paddingTop: "3rem",
+//                     alignItems: "center",
+//                     flexDirection: "column",
+//                     borderBottom: "1px solid #ddd",
+//                     position: "relative",
+//                 }}
+//             >
+//                 <div
+//                     style={{
+//                         minHeight: "max(12vw, 8rem)",
+//                         width: "100%",
+//                         position: "relative",
+//                         background: "black",
+//                     }}
+//                 >
+//                     <Image
+//                         fill
+//                         src={"/banner.png"}
+//                         alt={"image"}
+//                         sizes="100vw"
+//                         priority
+//                         style={{
+//                             objectFit: "cover",
+//                             opacity: 0.6,
+//                         }}
+//                     />
+//                     <div
+//                         className="side-padding"
+//                         style={{
+//                             position: "absolute",
+//                             top: 0,
+//                             bottom: 0,
+//                             width: "100%",
+//                             color: "white",
+//                             lineHeight: 1.3,
+//                             display: "flex",
+//                             flexDirection: "column",
+//                             justifyContent: "center",
+//                         }}
+//                     >
+//                         <h3
+//                             style={{
+//                                 fontSize: "max(1.8vw, 1.2rem)",
+//                                 fontWeight: 500,
+//                             }}
+//                         >
+//                             {`Massachusetts’ Leading`}
+//                         </h3>
+//                         <h2
+//                             style={{
+//                                 fontSize: "max(3.6vw, 1.8rem)",
+//                                 textTransform: "uppercase",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1,
+//                             }}
+//                         >
+//                             {`Construction Staffing Service`}
+//                         </h2>
+//                     </div>
+//                 </div>
+//                 <div
+//                     className="side-padding flex-direction"
+//                     style={{
+//                         display: "flex",
+//                         height: "100%",
+//                         width: "100%",
+//                     }}
+//                 >
+//                     <div
+//                         style={{
+//                             display: "flex",
+//                             flexDirection: "column",
+//                             flexGrow: 1,
+
+//                             justifyContent: "center",
+//                             paddingBlock: "1rem",
+//                         }}
+//                     >
+//                         <h2
+//                             style={{
+//                                 textTransform: "uppercase",
+//                                 fontSize: "max(1.4vw,1rem)",
+//                                 fontWeight: 600,
+//                             }}
+//                         >
+//                             Your Solution for
+//                         </h2>
+//                         <h1
+//                             style={{
+//                                 fontSize: "max(6.4vw, 2.4rem)",
+//                                 fontWeight: 800,
+//                                 lineHeight: 1,
+//                                 marginTop: "1.6vw",
+//                                 whiteSpace: "nowrap",
+//                             }}
+//                         >
+//                             Skilled Carpentry <br></br>and Labor
+//                         </h1>
+//                         <p
+//                             style={{
+//                                 marginTop: "4vw",
+//                                 opacity: 0.7,
+//                                 fontWeight: 500,
+//                                 lineHeight: 1.6,
+//                             }}
+//                         >{`• Custom-Tailored Teams`}</p>
+//                         <p
+//                             style={{
+//                                 opacity: 0.7,
+//                                 fontWeight: 500,
+//                                 lineHeight: 1.6,
+//                             }}
+//                         >{`• On standby, ready to be deployed`}</p>
+//                         <Link
+//                             href="/partner-form"
+//                             style={{
+//                                 fontSize: "1.5rem",
+//                                 fontWeight: 500,
+//                                 color: "#ffffff",
+//                                 cursor: "pointer",
+//                                 paddingBlock: "0.6rem",
+//                                 background: "#FF5D39",
+//                                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.25)",
+//                                 display: "flex",
+//                                 justifyContent: "center",
+//                                 filter: "saturate(120%)",
+//                                 maxWidth: "24rem",
+//                                 marginTop: "5vw",
+//                                 zIndex: 2,
+//                             }}
+//                         >
+//                             Deploy a Team Now →
+//                         </Link>
+//                     </div>
+//                     <div
+//                         style={{
+//                             width: "100%",
+//                             display: "flex",
+//                             justifyContent: "flex-end",
+//                             height: "100%",
+//                         }}
+//                     >
+//                         <div
+//                             style={{
+//                                 // height: "100%",
+//                                 // minWidth: "28vw",
+//                                 // position: "relative",
+//                                 height: "100%",
+//                                 aspectRatio: "0.63",
+//                                 position: "relative",
+//                             }}
+//                         >
+//                             <Image
+//                                 fill
+//                                 src={"/arms.png"}
+//                                 alt={"image"}
+//                                 sizes="30vw"
+//                                 priority
+//                                 style={{
+//                                     objectFit: "cover",
+//                                 }}
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <div
+//                 className="scroll-button"
+//                     style={{
+//                         position: "absolute",
+//                         display: "flex",
+//                         justifyContent: "center",
+//                         alignItems: "center",
+//                     }}
+//                 >
+//                     <Link
+//                         href="#scroll"
+//                         style={{
+//                             display: "flex",
+//                             justifyContent: "center",
+//                             textAlign: "center",
+//                             whiteSpace: "nowrap",
+//                             padding: "1rem",
+//                             opacity: 0.5,
+//                         }}
+//                     >
+//                         learn more <br></br>↓
+//                     </Link>
+//                 </div>
+//             </section>
+//             <div
+//                 id="scroll"
+//                 className="side-padding"
+//                 style={{
+//                     display: "flex",
+//                     flexDirection: "column",
+//                     width: "100%",
+//                     paddingBlock: "3rem",
+//                     borderBottom: "1px solid #ddd",
+//                 }}
+//             >
+//                 <h3
+//                     style={{
+//                         // textTransform: "uppercase",
+//                         fontSize: "2.4rem",
+//                         fontWeight: 600,
+//                     }}
+//                 >
+//                     Contract Staffing
+//                 </h3>
+//                 <p
+//                     style={{
+//                         fontWeight: 400,
+//                         marginTop: "0.6rem",
+//                         fontSize: "1.2rem",
+//                         opacity: 0.7,
+//                         maxWidth: "42rem",
+//                         lineHeight: 1.2,
+//                     }}
+//                 >
+//                     {`We offer a unique contract staffing service that provides experienced labor teams ready to be deployed to your project site.`}
+//                 </p>
+
+//                 <div
+//                     style={{
+//                         borderBottom: "1px solid #ddd",
+//                         marginTop: "3rem",
+//                     }}
+//                 />
+
+//                 <h3
+//                     style={{
+//                         fontSize: "4.4rem",
+//                         fontWeight: 800,
+//                         textTransform: "uppercase",
+//                         lineHeight: 1.2,
+//                         marginTop: "2rem",
+//                     }}
+//                 >
+//                     {`here's how it works`}
+//                 </h3>
+//                 <p
+//                     style={{
+//                         fontWeight: 400,
+//                         marginTop: "1.6rem",
+//                         fontSize: "1.6rem",
+//                         opacity: 0.8,
+//                         maxWidth: "56rem",
+//                         lineHeight: 1.2,
+//                     }}
+//                 >
+//                     {`Phoenix employs skilled carpenters and laborers who can be hired for the duration of your project. While they work under your direction at the job site, they remain employees of Phoenix Construction.`}
+//                     <br></br>
+//                     <br></br>
+//                     {`This means:`}
+//                 </p>
+
+//                 <div
+//                     className="flex-direction"
+//                     style={{
+//                         display: "flex",
+//                         width: "100%",
+//                         marginTop: "2rem",
+//                         gap: "2rem",
+//                     }}
+//                 >
+//                     <div
+//                         style={{
+//                             display: "flex",
+//                             flexDirection: "column",
+//                             width: "100%",
+//                             justifyContent: "space-between",
+//                         }}
+//                     >
+//                         <h4
+//                             style={{
+//                                 fontSize: "1.8rem",
+//                                 fontWeight: 500,
+//                             }}
+//                         >
+//                             Immediate Expertise
+//                         </h4>
+
+//                         <p
+//                             style={{
+//                                 marginTop: "1rem",
+//                                 fontWeight: 400,
+//                                 opacity: 0.6,
+//                                 lineHeight: 1.2,
+//                             }}
+//                         >
+//                             {`Our workers are experienced and ready to start, eliminating the need for an onboarding process.`}
+//                         </p>
+//                     </div>
+//                     <div className="divider" />
+//                     <div
+//                         style={{
+//                             display: "flex",
+//                             flexDirection: "column",
+//                             width: "100%",
+//                             justifyContent: "space-between",
+//                         }}
+//                     >
+//                         <h4
+//                             style={{
+//                                 fontSize: "1.8rem",
+//                                 fontWeight: 500,
+//                             }}
+//                         >
+//                             Flexibility
+//                         </h4>
+
+//                         <p
+//                             style={{
+//                                 marginTop: "1rem",
+//                                 fontWeight: 400,
+//                                 opacity: 0.6,
+//                                 lineHeight: 1.2,
+//                             }}
+//                         >
+//                             {`You can easily adjust the size of your team based on your project needs. Whether you need workers temporarily or for the entire duration of your project, we have you covered.`}
+//                         </p>
+//                     </div>
+//                     <div className="divider" />
+//                     <div
+//                         style={{
+//                             display: "flex",
+//                             flexDirection: "column",
+//                             width: "100%",
+//                             justifyContent: "space-between",
+//                         }}
+//                     >
+//                         <h4
+//                             style={{
+//                                 fontSize: "1.8rem",
+//                                 fontWeight: 500,
+//                             }}
+//                         >
+//                             No Long-term Commitment
+//                         </h4>
+
+//                         <p
+//                             style={{
+//                                 marginTop: "1rem",
+//                                 fontWeight: 400,
+//                                 opacity: 0.6,
+//                                 lineHeight: 1.2,
+//                             }}
+//                         >
+//                             {`Hire teams for the specific duration of your project without worrying about long-term employment contracts.`}
+//                         </p>
+//                     </div>
+//                 </div>
+
+                
+//             </div>
+//             <div
+//                 className="flex-direction"
+//                 style={{
+//                     display: "flex",
+//                     width: "100%",
+//                     borderBottom: "1px solid #ddd",
+//                 }}
+//             >
+//                 <div
+//                     style={{
+//                         aspectRatio: "3/2",
+//                         minWidth: "50vw",
+//                         position: "relative",
+//                     }}
+//                 >
+//                     <Image
+//                         fill
+//                         src={"/handshake.png"}
+//                         alt={"image"}
+//                         sizes="100vw"
+//                         priority
+//                         style={{
+//                             objectFit: "cover",
+//                             filter: "saturate(120%)",
+//                         }}
+//                     />
+//                 </div>
+//                 <div
+//                     className="side-padding"
+//                     style={{
+//                         paddingBlock: "2rem",
+//                         display: "flex",
+//                         flexDirection: "column",
+//                         justifyContent: "center",
+//                     }}
+//                 >
+//                     <h3
+//                         style={{
+//                             fontSize: "3rem",
+//                             fontWeight: 800,
+//                             textTransform: "uppercase",
+//                             lineHeight: 1.2,
+//                         }}
+//                     >
+//                         {`Why choose a phoenix team`}
+//                     </h3>
+
+//                     <p
+//                         style={{
+//                             marginTop: "1.6rem",
+//                             fontSize: "1.2rem",
+//                             fontWeight: 500,
+//                             opacity: 0.7,
+//                             lineHeight: 1.2,
+//                         }}
+//                     >
+//                         {`• We Handle all logistics related to payment and personnel management.`}
+//                     </p>
+//                     <p
+//                         style={{
+//                             marginTop: "1rem",
+//                             fontSize: "1.2rem",
+//                             fontWeight: 500,
+//                             opacity: 0.7,
+//                             lineHeight: 1.2,
+//                             marginBottom: "3rem",
+//                         }}
+//                     >
+//                         {`• You have the freedom to modify your workforce quickly and easily.`}
+//                     </p>
+//                     <LinkToForm text="Hire Phoenix"/>
+//                 </div>
+//             </div>
+
+//             <div 
+//             className="side-padding"
+//             style={{
+//                 display: "flex",
+//                 flexDirection: "column",
+
+//             }}>
+
+//                 <h3
+//                     style={{
+//                         fontSize: "2.4rem",
+//                         fontWeight: 800,
+//                         textTransform: "uppercase",
+//                         lineHeight: 1.2,
+//                         marginTop: "2rem",
+//                     }}
+//                 >
+//                     {`Who is this for?`}
+//                 </h3>
+//                 <p
+//                     style={{
+//                         fontWeight: 400,
+//                         marginTop: "1.6rem",
+//                         fontSize: "1.6rem",
+//                         opacity: 0.8,
+//                         maxWidth: "56rem",
+//                         lineHeight: 1.2,
+//                     }}
+//                 >
+//                     {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project’s success.`}
+//                 </p>
+//                 </div>
+//             <div
+//                 className="side-padding"
+//                 style={{
+//                     display: "flex",
+//                     flexDirection: "column",
+//                     // boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
+//                     paddingBlock: "1.6rem",
+//                     // borderRadius: "1rem",
+//                     background: "#2b6288",
+//                     justifyContent: "center",
+//                     alignItems: "center",
+//                     marginTop: "4rem",
+//                 }}
+//             >
+//                 <div
+//                     style={{
+//                         display: "flex",
+//                         flexDirection: "column",
+//                         paddingInline: "1rem",
+//                         boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
+//                         paddingBottom: "2rem",
+//                         paddingTop: "1rem",
+//                         borderRadius: "1rem",
+//                         background: "#ffffff11",
+//                         maxWidth: "30rem",
+//                         alignItems: "center",
+//                     }}
+//                 >
+//                     <svg
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         fill="none"
+//                         viewBox="0 0 24 24"
+//                         strokeWidth={1}
+//                         stroke="white"
+//                         className="w-6 h-6"
+//                         style={{
+//                             height: "8rem",
+//                             width: "8rem",
+//                         }}
+//                     >
+//                         <path
+//                             strokeLinecap="round"
+//                             strokeLinejoin="round"
+//                             d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+//                         />
+//                     </svg>
+
+//                     <h3
+//                         style={{
+//                             // textTransform: "uppercase",
+//                             fontSize: "1.8rem",
+//                             fontWeight: 500,
+//                             marginTop: "1.6rem",
+//                             color: "white",
+//                         }}
+//                     >
+//                         Phoenix Safety Training
+//                     </h3>
+
+//                     <p
+//                         style={{
+//                             marginTop: "1rem",
+//                             fontSize: "1.2rem",
+//                             fontWeight: 500,
+//                             opacity: 0.8,
+//                             lineHeight: 1.2,
+//                             color: "white",
+//                             textAlign: "center",
+//                         }}
+//                     >
+//                         {`All Phoenix employees complete comprehensive OSHA-aligned safety training before beginning work.`}
+//                     </p>
+//                 </div>
+//             </div>
+
+//             <div
+//                 className="flex-direction"
+//                 style={{
+//                     display: "flex",
+//                     width: "100%",
+//                     borderBottom: "1px solid #ddd",
+//                 }}
+//             >
+//                 <div
+//                     className="side-padding"
+//                     style={{
+//                         paddingBlock: "2rem",
+//                         display: "flex",
+//                         flexDirection: "column",
+//                         justifyContent: "center",
+//                         flexGrow: 1,
+//                     }}
+//                 >
+//                     <h4
+//                         style={{
+//                             fontSize: "3rem",
+//                             fontWeight: 800,
+//                             textTransform: "uppercase",
+//                             lineHeight: 1.2,
+//                         }}
+//                     >
+//                         Our Services
+//                     </h4>
+//                     <ul
+//                         style={{
+//                             display: "flex",
+//                             marginTop: "1rem",
+//                             gap: "0.6rem",
+//                             flexDirection: "column",
+//                             marginBottom: "3rem",
+//                         }}
+//                     >
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Skilled Carpentry
+//                         </li>
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Time and Material Labor
+//                         </li>
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Punch List
+//                         </li>
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Site Preparation
+//                         </li>
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Waste Disposal
+//                         </li>
+//                         <li
+//                             style={{
+//                                 // textTransform: "uppercase",
+//                                 fontSize: "1.4rem",
+//                                 fontWeight: 700,
+//                                 lineHeight: 1.2,
+//                                 display: "flex",
+//                                 alignItems: "center",
+//                                 gap: "0.6rem",
+//                             }}
+//                         >
+//                             <div
+//                                 style={{
+//                                     height: "0.4rem",
+//                                     width: "0.4rem",
+//                                     borderRadius: "100%",
+//                                     background: "#000000",
+//                                 }}
+//                             />
+//                             Material Handling
+//                         </li>
+//                     </ul>
+
+                    
+//                     <LinkToForm text="Hire Phoenix"/>
+//                 </div>
+//                 <div
+//                     style={{
+//                         aspectRatio: "3/2",
+//                         minWidth: "50vw",
+//                         position: "relative",
+//                     }}
+//                 >
+//                     <Image
+//                         fill
+//                         src={"/shovel.png"}
+//                         alt={"image"}
+//                         sizes="100vw"
+//                         priority
+//                         style={{
+//                             objectFit: "cover",
+//                             filter: "saturate(120%)",
+//                         }}
+//                     />
+//                 </div>
+//             </div>
+//         </main>
+//     );
+// }
+
+
+
+
+
 export default function Home() {
+    const trackConversion = useConversionTracking();
+
     return (
         <main>
             <section
@@ -598,7 +1341,7 @@ export default function Home() {
                                 fontWeight: 500,
                             }}
                         >
-                            {`Massachusetts’ Leading`}
+                            {`Massachusetts' Leading`}
                         </h3>
                         <h2
                             style={{
@@ -625,7 +1368,6 @@ export default function Home() {
                             display: "flex",
                             flexDirection: "column",
                             flexGrow: 1,
-
                             justifyContent: "center",
                             paddingBlock: "1rem",
                         }}
@@ -641,14 +1383,14 @@ export default function Home() {
                         </h2>
                         <h1
                             style={{
-                                fontSize: "max(6.4vw, 2.8rem)",
+                                fontSize: "max(6.4vw, 2.4rem)",
                                 fontWeight: 800,
                                 lineHeight: 1,
                                 marginTop: "1.6vw",
                                 whiteSpace: "nowrap",
                             }}
                         >
-                            Skilled Labor <br></br>and Carpentry
+                            Skilled Carpentry <br></br>and Labor
                         </h1>
                         <p
                             style={{
@@ -667,6 +1409,7 @@ export default function Home() {
                         >{`• On standby, ready to be deployed`}</p>
                         <Link
                             href="/partner-form"
+                            onClick={() => trackConversion('/partner-form')}
                             style={{
                                 fontSize: "1.5rem",
                                 fontWeight: 500,
@@ -696,9 +1439,6 @@ export default function Home() {
                     >
                         <div
                             style={{
-                                // height: "100%",
-                                // minWidth: "28vw",
-                                // position: "relative",
                                 height: "100%",
                                 aspectRatio: "0.63",
                                 position: "relative",
@@ -754,7 +1494,6 @@ export default function Home() {
             >
                 <h3
                     style={{
-                        // textTransform: "uppercase",
                         fontSize: "2.4rem",
                         fontWeight: 600,
                     }}
@@ -802,7 +1541,7 @@ export default function Home() {
                         lineHeight: 1.2,
                     }}
                 >
-                    {`Phoenix employs skilled laborers and carpenters who can be hired for the duration of your project. While they work under your direction at the job site, they remain employees of Phoenix Construction.`}
+                    {`Phoenix employs skilled carpenters and laborers who can be hired for the duration of your project. While they work under your direction at the job site, they remain employees of Phoenix Construction.`}
                     <br></br>
                     <br></br>
                     {`This means:`}
@@ -904,8 +1643,6 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-
-                
             </div>
             <div
                 className="flex-direction"
@@ -977,7 +1714,9 @@ export default function Home() {
                     >
                         {`• You have the freedom to modify your workforce quickly and easily.`}
                     </p>
-                    <LinkToForm text="Hire Phoenix"/>
+                    <div onClick={() => trackConversion('/partner-form')}>
+                        <LinkToForm text="Hire Phoenix"/>
+                    </div>
                 </div>
             </div>
 
@@ -986,9 +1725,7 @@ export default function Home() {
             style={{
                 display: "flex",
                 flexDirection: "column",
-
             }}>
-
                 <h3
                     style={{
                         fontSize: "2.4rem",
@@ -1010,17 +1747,15 @@ export default function Home() {
                         lineHeight: 1.2,
                     }}
                 >
-                    {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project’s success.`}
+                    {`Our services are tailored for general contractors working on commercial projects, ranging from small developments to skyscrapers. Whether you need a compact team or a larger crew, Phoenix Construction is ready to support your project's success.`}
                 </p>
-                </div>
+            </div>
             <div
                 className="side-padding"
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    // boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.2)",
                     paddingBlock: "1.6rem",
-                    // borderRadius: "1rem",
                     background: "#2b6288",
                     justifyContent: "center",
                     alignItems: "center",
@@ -1041,7 +1776,7 @@ export default function Home() {
                         alignItems: "center",
                     }}
                 >
-                    <svg
+                        <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -1062,14 +1797,13 @@ export default function Home() {
 
                     <h3
                         style={{
-                            // textTransform: "uppercase",
                             fontSize: "1.8rem",
                             fontWeight: 500,
                             marginTop: "1.6rem",
                             color: "white",
                         }}
                     >
-                        OSHA Certified
+                        Phoenix Safety Training
                     </h3>
 
                     <p
@@ -1083,7 +1817,7 @@ export default function Home() {
                             textAlign: "center",
                         }}
                     >
-                        {`All Phoenix employees arive with proper safety training and OSHA certification.`}
+                        {`All Phoenix employees complete comprehensive OSHA-aligned safety training before beginning work.`}
                     </p>
                 </div>
             </div>
@@ -1127,7 +1861,6 @@ export default function Home() {
                     >
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1144,11 +1877,10 @@ export default function Home() {
                                     background: "#000000",
                                 }}
                             />
-                            Carpentry
+                            Skilled Carpentry
                         </li>
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1165,11 +1897,10 @@ export default function Home() {
                                     background: "#000000",
                                 }}
                             />
-                            General Labor
+                            Time and Material Labor
                         </li>
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1190,7 +1921,6 @@ export default function Home() {
                         </li>
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1211,7 +1941,6 @@ export default function Home() {
                         </li>
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1232,7 +1961,6 @@ export default function Home() {
                         </li>
                         <li
                             style={{
-                                // textTransform: "uppercase",
                                 fontSize: "1.4rem",
                                 fontWeight: 700,
                                 lineHeight: 1.2,
@@ -1253,8 +1981,9 @@ export default function Home() {
                         </li>
                     </ul>
 
-                    
-                    <LinkToForm text="Hire Phoenix"/>
+                    <div onClick={() => trackConversion('/partner-form')}>
+                        <LinkToForm text="Hire Phoenix"/>
+                    </div>
                 </div>
                 <div
                     style={{
